@@ -1,0 +1,7 @@
+= simple_form_for(@client) do |f| 
+	.input-group
+		%span.input-group-addon#basic-addon
+			Cliente
+		= f.input :nome, :class => 'form-control', :placeholder => 'Cliente', :'aria-describedby' => "basic-addon", wrapper_html: { class: '' }
+	.form-actions
+		= f.button :submit, :class => 'btn btn-success'

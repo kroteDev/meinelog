@@ -1,0 +1,16 @@
+<%= simple_form_for(@activity) do |f| %>
+  <%= f.error_notification %>
+
+  <div class="form-inputs">
+    <%= f.input :title %>
+    <%= f.input :description %>
+    <%= f.input :day %>
+    <%= f.input :duration %>
+    <%= f.input :priority %>
+    <%= f.association :client, :label_method => 'nome' %>
+  </div>
+
+  <div class="form-actions">
+    <%= f.button :submit %>
+  </div>
+<% end %>
