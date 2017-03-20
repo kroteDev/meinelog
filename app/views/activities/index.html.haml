@@ -1,0 +1,10 @@
+%header.page-title
+  %h1=t('.list_activities')
+.container
+  %ul.activities_list
+    - @activities.each do |activity|
+      %li.activity
+        %span
+        %h1=activity.title
+        .date
+          =l(activity.day, format: :short)
