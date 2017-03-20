@@ -15,10 +15,12 @@ class ActivitiesController < ApplicationController
   # GET /activities/new
   def new
     @activity = Activity.new
+    @prioridade = [['Muito Baixa', 1], ['Baixa', 2], ['Média', 3], ['Alta', 4], ['Muito Alta', 5]]
   end
 
   # GET /activities/1/edit
   def edit
+    @prioridade = [['Muito Baixa', 1], ['Baixa', 2], ['Média', 3], ['Alta', 4], ['Muito Alta', 5]]
   end
 
   # POST /activities
