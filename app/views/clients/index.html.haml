@@ -1,0 +1,12 @@
+%header.page-title
+	%h1=t('.clients')
+.clients_wrapper
+	- @clients.each do |client|
+		%li.client
+			%figure
+				= image_tag(client.logo.url(:medium))	
+				%figcaption
+					%h1=link_to client.nome, edit_client_path(client)
+					
+      
+/= link_to t('.new_client'), new_client_path
