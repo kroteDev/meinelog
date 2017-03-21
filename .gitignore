@@ -68,3 +68,7 @@ build-iPhoneSimulator/
 # unless supporting rvm < 1.11.0 or doing something fancy, ignore this:
 .rvmrc
 >>>>>>> 62134020f69a2a57aeb79b701648d8d2ee2bdca1
+
+#to ignore all images from client
+ public/system/clients/*
+ 

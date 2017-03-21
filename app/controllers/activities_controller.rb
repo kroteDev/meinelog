@@ -30,8 +30,8 @@ class ActivitiesController < ApplicationController
 
     respond_to do |format|
       if @activity.save
-        format.html { redirect_to @activity, notice: 'Activity was successfully created.' }
-        format.json { render :show, status: :created, location: @activity }
+        format.html { redirect_to activities_path, notice: 'Activity was successfully created.' }
+        format.json { render :show, status: :created, location: activities_path }
       else
         format.html { render :new }
         format.json { render json: @activity.errors, status: :unprocessable_entity }
@@ -71,6 +71,6 @@ class ActivitiesController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def activity_params
-      params.require(:activity).permit(:title, :description, :day, :duration, :priority, :client_id)
+      params.require(:activity).permit(:title, :description, :day, :duration, :priority, :client_id, :complete)
     end
 end

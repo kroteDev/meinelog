@@ -1,14 +1,20 @@
 = simple_form_for(@activity) do |f| 
   = f.error_notification 
 
-  .form-inputs
-    = f.input :title 
-    = f.input :description 
+  .form-group
+    = f.input :title,:wrapper => false, input_html:{:class => 'form-control'}
+  .form-group
+    = f.input :description ,:wrapper => false, input_html:{:class => 'form-control'}
+  .form-group
     = f.input :day 
+  .form-group
     = f.input :duration 
-    = f.input :priority , collection: @prioridade
-    = f.association :client, :label_method => 'nome' 
-  
+  .form-group
+    = f.input :priority , collection: @prioridade,:wrapper => false, input_html:{:class => 'form-control'}
+  .form-group
+    = f.association :client, :label_method => 'nome' ,:wrapper => false, input_html:{:class => 'form-control'}
+  .form-group
+    = f.input :complete , :wrapper => false, input_html:{:class => 'form-control'}
 
   .form-actions
     = f.button :submit 

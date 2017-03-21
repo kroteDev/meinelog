@@ -1,4 +1,12 @@
-
+header.page-title{
+	text-align: center;
+	margin-bottom: 40px;
+	color:#004444;	
+	h1{
+		margin: 0px;
+		font-weight: bold;
+	}
+}
 .clients_wrapper{
 	width: 100%;
 	.client{
@@ -113,10 +121,25 @@
 					height: 20px;
 					border: 3px solid #a4e5d9;
 					border-radius: 50%;
-					background-color: #66c6ba;
+					/*background-color: #66c6ba;*/	
 					top:0px;
 					left: -11px;
 				}
+			}
+			span.priority_very_low:before{
+				background-color: #bff4ed;
+			}
+			span.priority_low:before{
+				background-color: #90f6d7;
+			}
+			span.priority_medium:before{
+				background-color: #fb9935;
+			}
+			span.priority_high:before{
+				background-color: #ff5200;
+			}
+			span.priority_very_high:before{
+				background-color: #c31207;
 			}
 		}
 	}

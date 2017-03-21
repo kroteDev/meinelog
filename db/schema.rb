@@ -19,6 +19,7 @@ ActiveRecord::Schema.define(version: 20170317145514) do
     t.datetime "day"
     t.time     "duration"
     t.string   "priority"
+    t.boolean  "complete"
     t.integer  "client_id"
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false

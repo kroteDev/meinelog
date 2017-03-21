@@ -6,6 +6,7 @@ class CreateActivities < ActiveRecord::Migration
       t.datetime :day
       t.time :duration
       t.string :priority
+      t.boolean :complete
       t.references :client, index: true, foreign_key: true
 
       t.timestamps null: false

@@ -249,3 +249,8 @@ pt-BR:
     index:
       clients: 'Clientes'
       new_client: 'Novo Cliente'
+  activities:
+    index:
+      activities_list: 'Lista de Atividades'
+    new:
+      new_activity:  'Nova Atividade'

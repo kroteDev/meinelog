@@ -27,7 +27,12 @@
 
 <p>
   <strong>Client:</strong>
-  <%= @activity.client %>
+  <%= @activity.client.nome %>
+</p>
+
+<p>
+  <strong>Complete:</strong>
+  <%= @activity.complete %>
 </p>
 
 <%= link_to 'Edit', edit_activity_path(@activity) %> |
