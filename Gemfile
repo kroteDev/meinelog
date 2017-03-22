@@ -55,5 +55,5 @@ gem 'paperclip', '~> 5.1'
 #gem 'activeadmin', github: 'activeadmin'
 gem 'seed_dump', '~> 3.2', '>= 3.2.4'
 
-gem 'bootstrap-datepicker-rails'
+#gem 'bootstrap-datepicker-rails'
 gem 'jquery-ui-rails', '~> 6.0', '>= 6.0.1'

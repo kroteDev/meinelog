@@ -14,7 +14,21 @@
 //= require jquery_ujs
 //= require turbolinks
 //= require jquery
-//= require jquery-ui
+//= require jquery-ui/widgets/datepicker
+//= require jquery-ui/i18n/datepicker-pt-BR
 //= require bootstrap-sprockets
-//= require bootstrap-datepicker
 //= require_tree .
+
+$.datepicker.setDefaults({
+	autoclose: true,
+	clearBtn: true,
+	dateFormat : 'yy-mm-dd',
+	changeMonth: true,
+	changeYear: true,
+	showButtonPanel: true,
+	yearRange: "-60:+0"
+	
+	}, $.datepicker.regional[ "pt-BR" ]);
+$(function(){
+	$('#activity_day').datepicker();
+});

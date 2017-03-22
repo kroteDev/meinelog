@@ -11,9 +11,8 @@
  * file per style scope.
  *
  *= require_tree .
- *= require_self
- *= require bootstrap-datepicker3
- *= require jquery-ui
+ *= require_self 
+ *= require jquery-ui/datepicker
  */
 
  @import "bootstrap";
