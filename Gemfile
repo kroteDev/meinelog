@@ -57,3 +57,6 @@ gem 'seed_dump', '~> 3.2', '>= 3.2.4'
 
 #gem 'bootstrap-datepicker-rails'
 gem 'jquery-ui-rails', '~> 6.0', '>= 6.0.1'
+
+gem 'omniauth', '~> 1.6', '>= 1.6.1'
+gem 'omniauth-facebook', '~> 4.0'

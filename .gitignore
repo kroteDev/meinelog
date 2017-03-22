@@ -71,3 +71,6 @@ build-iPhoneSimulator/
 
 #to ignore all images from client
 public/system/clients/* 
+
+#ignore the secrets.yml becase of the facebook key
+config/secrets.yml
