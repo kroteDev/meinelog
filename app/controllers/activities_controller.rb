@@ -1,10 +1,10 @@
 class ActivitiesController < ApplicationController
   before_action :set_activity, only: [:show, :edit, :update, :destroy]
-
+  before_action :prioridades
   # GET /activities
   # GET /activities.json
   def index
-    @activities = Activity.all
+    @activities = current_user.activities.order('day DESC')
   end
 
   # GET /activities/1
@@ -14,20 +14,19 @@ class ActivitiesController < ApplicationController
 
   # GET /activities/new
   def new
-    @activity = Activity.new
-    @prioridade = [['Muito Baixa', 1], ['Baixa', 2], ['Média', 3], ['Alta', 4], ['Muito Alta', 5]]
+    @activity = current_user.activities.build
+    
   end
 
   # GET /activities/1/edit
   def edit
-    @prioridade = [['Muito Baixa', 1], ['Baixa', 2], ['Média', 3], ['Alta', 4], ['Muito Alta', 5]]
+    
   end
 
   # POST /activities
   # POST /activities.json
   def create
-    @activity = Activity.new(activity_params)
-
+    @activity = current_user.activities.build(activity_params)
     respond_to do |format|
       if @activity.save
         format.html { redirect_to activities_path, notice: 'Activity was successfully created.' }
@@ -62,15 +61,20 @@ class ActivitiesController < ApplicationController
       format.json { head :no_content }
     end
   end
-
+  
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_activity
-      @activity = Activity.find(params[:id])
+      @activity = current_user.activities.find(params[:id])
+      rescue ActiveRecord::RecordNotFound
+      redirect_to root_url, notice: "Activity not found or don't belong to you"
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def activity_params
       params.require(:activity).permit(:title, :description, :day, :duration, :priority, :client_id, :complete)
+    end
+    def prioridades
+      @prioridade = [['Muito Baixa', 1], ['Baixa', 2], ['Média', 3], ['Alta', 4], ['Muito Alta', 5]]
     end
 end
