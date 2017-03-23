@@ -74,3 +74,6 @@ public/system/clients/*
 
 #ignore the secrets.yml becase of the facebook key
 config/secrets.yml
+
+#ignore the assets compile
+public/assets/
