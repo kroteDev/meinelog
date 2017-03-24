@@ -5,8 +5,8 @@
 		- @activities.each do |activity|
 			%li.activity
 				%span{:class => find_priority(activity.priority)}
-				.data
-					%h1=activity.title
+				.data{:class => "#{activity.complete}" }
+					%h1=link_to activity.title, edit_activity_path(activity)
 					%p=activity.description
 					.date
 						=l(activity.day, format: :short)

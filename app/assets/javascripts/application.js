@@ -13,7 +13,6 @@
 //= require jquery
 //= require jquery_ujs
 //= require turbolinks
-//= require jquery
 //= require jquery-ui/widgets/datepicker
 //= require jquery-ui/i18n/datepicker-pt-BR
 //= require bootstrap-sprockets
@@ -29,6 +28,6 @@ $.datepicker.setDefaults({
 	yearRange: "-60:+0"
 	
 	}, $.datepicker.regional[ "pt-BR" ]);
-$(function(){
+$(document).on('turbolinks:load', function() {
 	$('#activity_day').datepicker();
 });

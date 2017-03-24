@@ -1,12 +1,11 @@
 = simple_form_for(@activity) do |f| 
   = f.error_notification 
-
   .form-group
     = f.input :title,:wrapper => false, input_html:{:class => 'form-control'}
   .form-group
     = f.input :description ,:wrapper => false, input_html:{:class => 'form-control'}
   .form-group.half_left
-    = f.input :day, as: :string, :wrapper => false, input_html:{:class => 'form-control'}
+    = f.input :day, as: :string, :wrapper => false, input_html:{:class => 'form-control', :readonly =>"readonly"}
   .form-group.half_right.duration
     %label=t('.duration')    
     = f.input_field :duration, multiple: true, as: :string , :name => 'activity[duration(4i)]', :placeholder => '00'

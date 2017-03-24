@@ -4,7 +4,10 @@ class ActivitiesController < ApplicationController
   # GET /activities
   # GET /activities.json
   def index
-    @activities = current_user.activities.order('day DESC')
+    @activities = current_user.activities.where(nil).order('day DESC')
+    filtering_params(params).each do |key, value|
+      @activities = @activiti.public_send(key,value) if value.present?
+    end
   end
 
   # GET /activities/1
@@ -43,8 +46,8 @@ class ActivitiesController < ApplicationController
   def update
     respond_to do |format|
       if @activity.update(activity_params)
-        format.html { redirect_to @activity, notice: 'Activity was successfully updated.' }
-        format.json { render :show, status: :ok, location: @activity }
+        format.html { redirect_to activities_path, notice: 'Activity was successfully updated.' }
+        format.json { render :show, status: :ok, location: activities_path }
       else
         format.html { render :edit }
         format.json { render json: @activity.errors, status: :unprocessable_entity }
@@ -69,7 +72,9 @@ class ActivitiesController < ApplicationController
       rescue ActiveRecord::RecordNotFound
       redirect_to root_url, notice: "Activity not found or don't belong to you"
     end
-
+    def filtering_params(params)
+      params.slice(:status, :client)
+    end
     # Never trust parameters from the scary internet, only allow the white list through.
     def activity_params
       params.require(:activity).permit(:title, :description, :day, :duration, :priority, :client_id, :complete)

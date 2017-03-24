@@ -1,12 +1,31 @@
 %nav.navbar.navbar-default
 	.container
-		.navbar-brand= link_to 'Meine Log', root_path
-		%ul.nav.navbar-nav.navbar-right
-			%li= link_to t('nav.new_client'), new_client_path
-			%li= link_to t('nav.clients'), clients_path
-			%li= link_to t('nav.new_activity'), new_activity_path
-			%li= link_to t('nav.activities'), activities_path
-			-if current_user
-				%li= link_to current_user.name, '#'
-			-else
-				%li= link_to t("nav.sign_in"), "auth/facebook"
+		.navbar-header
+			%button{:type => 'button', :class => "navbar-toggle collapsed", :'data-toggle' => "collapse", :"data-target" => "#collapse-navbar"}
+				%span.sr-only Toogle Navigation
+				%span.icon-bar
+				%span.icon-bar
+				%span.icon-bar
+			.navbar-brand= link_to 'Meine Log', root_path
+		#collapse-navbar.collapse.navbar-collapse
+			%ul.nav.navbar-nav.navbar-right				
+				-if current_user
+					%li.dropdown
+						%a{:href => "#", :class => "dropdown-toggle", :"data-toggle" => "dropdown", :role => "button", :"aria-haspopup" => true, :"aria-expanded" => false}
+							=t('nav.clients')
+							%span.caret
+						%ul.dropdown-menu
+							%li= link_to t('nav.new_client'), new_client_path
+							%li= link_to t('nav.all_clients'), new_client_path
+					%li.dropdown
+						%a{:href => "#", :class => "dropdown-toggle", :"data-toggle" => "dropdown", :role => "button", :"aria-haspopup" => true, :"aria-expanded" => false}
+							=t('nav.activities')
+							%span.caret
+						%ul.dropdown-menu							
+							%li= link_to t('nav.new_activity'), new_activity_path
+							%li= link_to t('nav.all_activities'), activities_path
+							%li= link_to t('nav.pendent_activities'), activities_url(:status => "f")
+							%li= link_to t('nav.complete_activities'), activities_url(:status => "t")
+					%li= link_to current_user.name, '#'
+				-else
+					%li= link_to t("nav.sign_in"), "auth/facebook" 
