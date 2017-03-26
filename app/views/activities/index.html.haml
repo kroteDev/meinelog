@@ -9,4 +9,4 @@
 					%h1=link_to activity.title, edit_activity_path(activity)
 					%p=activity.description
 					.date
-						=l(activity.day, format: :short)
+						=l(activity.day, format: :short) if activity.day.present?
