@@ -6,7 +6,7 @@ class ActivitiesController < ApplicationController
   def index
     @activities = current_user.activities.where(nil).order('day DESC')
     filtering_params(params).each do |key, value|
-      @activities = @activiti.public_send(key,value) if value.present?
+      @activities = @activities.public_send(key,value) if value.present?
     end
   end
 
