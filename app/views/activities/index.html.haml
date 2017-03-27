@@ -8,5 +8,8 @@
 				.data{:class => "#{activity.complete}" }
 					%h1=link_to activity.title, edit_activity_path(activity)
 					%p=activity.description
-					.date
-						=l(activity.day, format: :short) if activity.day.present?
+					.info
+						.date
+							=l(activity.day, format: :short) if activity.day.present?
+						.client
+							=activity.client.nome

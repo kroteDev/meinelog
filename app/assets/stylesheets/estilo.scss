@@ -1,3 +1,74 @@
+@import url(https://fonts.googleapis.com/css?family=Lato:400,100,300,700,900);
+@font-face {
+	font-family: 'One Day';
+	src: url('fonts/One_Day.ttf');
+	src: url('fonts/One_Day.woff') format('woff'), url('fonts/One_Day.woff2') format('woff2');
+	font-weight: normal;
+	font-style: normal;
+}
+@font-face {
+	font-family: 'Poppins Light';
+	src: url('fonts/Poppins-Light.ttf') format('truetype');
+	font-weight: lighter;
+	font-style: normal;
+}
+@font-face {
+	font-family: 'Poppins';
+	src: url('fonts/Poppins-Regular.ttf') format('truetype');
+	font-weight: normal;
+	font-style: normal;
+}
+@font-face {
+	font-family: 'Poppins Medium';
+	src: url('fonts/Poppins-Medium.ttf') format('truetype');
+	font-weight: normal;
+	font-style: normal;
+}
+@font-face {
+	font-family: 'Poppins Bold';
+	src: url('fonts/Poppins-Bold.ttf') format('truetype');
+	font-weight: bold;
+	font-style: normal;
+}
+$purple : #2f1b41;
+$laranja : #f05941;
+/*Nav Bar Changes */
+.navbar-default{
+	background-color: $purple;
+	min-height: 100px;
+	border-radius: 0px;
+	border-left: 0px;
+	border-right: 0px;
+	border-top: 0px;
+	.navbar-nav > li > a{
+		color:#fff;
+		padding-top: 40px;
+		padding-bottom: 40px;
+		font-family: 'Poppins', serif;
+		font-size: 18px;
+	}
+	.navbar-nav > li > a:hover, .navbar-nav > li > a:focus{
+		color:$laranja;
+	}
+	.navbar-brand img{
+		width: 70%;
+	}
+	ul.dropdown-menu{
+		background-color: $purple;
+		text-align: right;
+		border:0px;
+		li a{
+			color: #fff;
+			font-family: 'Poppins', serif;
+			font-size: 16px;
+		}
+		li a:hover, li a:focus{
+			color: $laranja;
+			background-color: transparent;
+			border-bottom: 1px solid;
+		}
+	}
+}
 header.page-title{
 	text-align: center;
 	margin-bottom: 40px;
@@ -106,10 +177,39 @@ header.page-title{
 				width: 100%;
 				padding:15px;
 				border-radius: 7px;
-				h1{
-				color:#1f4e5f;
-				margin-top: 0px;
-				}			
+				h1 {
+					font-size: 30px;
+					a {
+						color:$purple;
+						margin-top: 0px;
+						font-family: 'Poppins Medium';
+						text-transform: capitalize;		
+					}	
+				}
+				p{
+					color:#686868;
+				}
+				.info{
+					margin:30px 0px 0px;
+					div{
+						width: 49%;
+						display: inline-block;
+						box-sizing:border-box;
+						color:#999999;
+					}
+					.date{
+						font-size: 12px;
+						font-family: 'Poppins Light';
+					}
+					.client{
+						font-size: 13px;
+						text-align: right;
+					}
+					.col-md-6:last-child{
+						text-align: right;
+					}
+				}
+				
 			}
 			.true{
 				background-color: #ecf0f1;
