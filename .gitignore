@@ -77,3 +77,5 @@ config/secrets.yml
 
 #ignore the assets compile
 public/assets/
+#ignore database File
+config/database.yml
