@@ -219,25 +219,6 @@ pt-BR:
       long: "%d de %B de %Y, %H:%M"
       short: "%d de %B de %Y"
     pm: ''
-  devise:
-    sessions:
-      professional:
-        signed_in: 'Bem vindo(a)'
-        signed_out: 'Até breve ;-)'
-    registrations:
-      sign_up:
-        cadastrar: 'Cadastrar'
-        sign_up: 'Cadastre-se no S.A.T'
-      sign_in:
-        sign_in: 'Acessar o S.A.T'
-      edit:
-        leave it blank if you don't want to change it: 'Deixe em branco caso não vá trocar'
-        we need your current password to confirm your changes: 'Preencha a senha atual para atualizar os dados'
-        password: 'Senha'
-        password_confirmation: 'Confirmação de Senha'
-        current_password: 'Senha Atual'
-        avatar: 'Foto de Perfil'
-        update: 'Atualizar Perfil'
   nav:
     clients: 'Clientes'
     new_client: 'Novo Cliente'
@@ -245,6 +226,8 @@ pt-BR:
     new_activity: 'Nova Atividade'
     pendent_activities: 'Atividades Pendentes'
     complete_activities: 'Atividades Completas'
+    sign_in: 'Entrar'
+    logout: 'Sair'
   banner:
     meinelog: 'Meine Log'
     presentation: 'Bem vindo a Meine log! Uma forma simples e direta de manter os seus registros de atividades.'

@@ -71,6 +71,21 @@ $laranja : #f05941;
 			border-bottom: 1px solid;
 		}
 	}
+	.sair{
+		a{
+			position: relative;			
+			padding-right: 30px;
+		}
+		a:after{
+			font: normal normal normal 14px/1 FontAwesome;
+			content: "\f08b";
+			color: #fff;	
+			position: absolute;
+			right: 8px;
+			bottom: 8px;
+		}
+		
+	}
 }
 .page-wrapper{
 	min-height: 75vh;
