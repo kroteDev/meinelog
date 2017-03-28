@@ -6,7 +6,10 @@
 				%span.icon-bar
 				%span.icon-bar
 				%span.icon-bar
-			.navbar-brand= link_to image_tag("/assets/logo_header"), root_path, :alt => 'Meine Log'
+			- if current_user					
+				.navbar-brand= link_to image_tag("/assets/logo_header"), activities_path, :alt => 'Meine Log'		
+			-else
+				.navbar-brand= link_to image_tag("/assets/logo_header"), root_url, :alt => 'Meine Log'
 		#collapse-navbar.collapse.navbar-collapse
 			%ul.nav.navbar-nav.navbar-right				
 				-if current_user
@@ -16,14 +19,14 @@
 							%span.caret
 						%ul.dropdown-menu
 							%li= link_to t('nav.new_client'), new_client_path
-							%li= link_to t('nav.all_clients'), clients_path
+							%li= link_to t('nav.clients'), clients_path
 					%li.dropdown
 						%a{:href => "#", :class => "dropdown-toggle", :"data-toggle" => "dropdown", :role => "button", :"aria-haspopup" => true, :"aria-expanded" => false}
 							=t('nav.activities')
 							%span.caret
 						%ul.dropdown-menu							
 							%li= link_to t('nav.new_activity'), new_activity_path
-							%li= link_to t('nav.all_activities'), activities_path
+							%li= link_to t('nav.activities'), activities_path
 							%li= link_to t('nav.pendent_activities'), activities_url(:status => "f")
 							%li= link_to t('nav.complete_activities'), activities_url(:status => "t")
 					%li.dropdown

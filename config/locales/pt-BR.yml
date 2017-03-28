@@ -243,6 +243,11 @@ pt-BR:
     new_client: 'Novo Cliente'
     activities: 'Atividades'
     new_activity: 'Nova Atividade'
+    pendent_activities: 'Atividades Pendentes'
+    complete_activities: 'Atividades Completas'
+  banner:
+    meinelog: 'Meine Log'
+    presentation: 'Bem vindo a Meine log! Uma forma simples e direta de manter os seus registros de atividades.'
   clients:
     new:
       new_client: 'Novo Cliente'
