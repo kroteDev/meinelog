@@ -63,3 +63,4 @@ gem 'jquery-ui-rails', '~> 6.0', '>= 6.0.1'
 
 gem 'omniauth', '~> 1.6', '>= 1.6.1'
 gem 'omniauth-facebook', '~> 4.0'
+gem 'omniauth-twitter', '~> 1.4'

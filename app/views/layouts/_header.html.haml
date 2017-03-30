@@ -7,9 +7,9 @@
 				%span.icon-bar
 				%span.icon-bar
 			- if current_user					
-				.navbar-brand= link_to image_tag("/assets/logo_header"), activities_path, :alt => 'Meine Log'		
+				.navbar-brand= link_to image_tag("/assets/logo_header"), activities_path, :title => 'Meine Log'		
 			-else
-				.navbar-brand= link_to image_tag("/assets/logo_header"), root_url, :alt => 'Meine Log'
+				.navbar-brand= link_to image_tag("/assets/logo_header"), root_url, :title => 'Meine Log'
 		#collapse-navbar.collapse.navbar-collapse
 			%ul.nav.navbar-nav.navbar-right				
 				-if current_user
@@ -36,4 +36,5 @@
 						%ul.dropdown-menu.sair						
 							%li= link_to t('nav.logout'), signout_path
 				-else
-					%li= link_to t("nav.sign_in"), "auth/facebook" 
+					%li= link_to t("nav.sign_in_facebook"), "auth/facebook" 
+					%li= link_to t("nav.sign_in_twitter"), "auth/twitter" 
