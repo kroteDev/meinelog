@@ -180,7 +180,6 @@ header.page-title{
 			overflow: hidden;
 			margin-bottom: 20px;
 			text-align: center;
-			cursor: pointer; 
 			height: 280px;
 			img{
 				width: 100%;
@@ -194,16 +193,16 @@ header.page-title{
 				height: 100%;
 				padding: 2em;
 				color: #fff;
-				text-transform: uppercase;
+				text-transform: capitalize;
 				font-size: 1.25em;
 				-webkit-backface-visibility: hidden;
-				background-color: rgba(10,10,10,0.2);
+				background-color: rgba(10,10,10,0.5);
 				backface-visibility: hidden;
 				transition: background-color 0.5s;
 				-moz-transition: background-color 0.5s;
 				-webkit-transition: background-color 0.5s;
 				h1{
-					opacity: 0;
+					opacity: 1;
 					position: absolute;
 					bottom: 0;
 					left: 0;
@@ -229,7 +228,7 @@ header.page-title{
 					h1{
 						opacity: 1;
 						a{
-							text-decoration: none;
+							text-decoration: underline;
 						}
 					}	
 				}
@@ -461,6 +460,8 @@ header.page-title{
 		.navbar-nav > .open > a,  .navbar-nav > .open > a:hover, .navbar-nav > .open > a:focus{
 			padding-top: 20px;
 			padding-bottom: 20px;
+			border-top:0px;
+			border-right: 0px;
 		}
 		.navbar-nav .open .dropdown-menu > li > a{
 			color:#fff;

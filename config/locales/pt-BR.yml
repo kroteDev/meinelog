@@ -6,6 +6,17 @@ pt-BR:
         restrict_dependent_destroy:
           has_one: Não é possível excluir o registro pois existe um %{record} dependente
           has_many: Não é possível excluir o registro pois existem %{record} dependentes
+    attributes:
+      activity:
+        title: 'Título: '
+        description: 'Descrição: '
+        day: 'Dia: '
+        duration: 'Duração: '
+        priority: 'Prioridade: '
+        client_id: 'Cliente/Projeto: '
+        complete: 'Concluído: '
+      client:
+        nome: 'Nome: '
   date:
     abbr_day_names:
     - Dom
@@ -220,8 +231,8 @@ pt-BR:
       short: "%d de %B de %Y"
     pm: ''
   nav:
-    clients: 'Clientes'
-    new_client: 'Novo Cliente'
+    clients: 'Clientes/Projetos'
+    new_client: 'Novo Cliente/Projeto'
     activities: 'Atividades'
     new_activity: 'Nova Atividade'
     pendent_activities: 'Atividades Pendentes'
@@ -233,12 +244,12 @@ pt-BR:
     presentation: 'Bem vindo a Meine log! Uma forma simples e direta de manter os seus registros de atividades.'
   clients:
     new:
-      new_client: 'Novo Cliente'
+      new_client: 'Novo Cliente/Projeto'
     index:
-      clients: 'Clientes'
-      new_client: 'Novo Cliente'
+      clients: 'Clientes/Projetos'
+      new_client: 'Novo Cliente/Projeto'
     edit:
-      edit_client: 'Editar Cliente'
+      edit_client: 'Editar Cliente/Projeto'
   activities:
     index:
       activities_list: 'Lista de Atividades'
