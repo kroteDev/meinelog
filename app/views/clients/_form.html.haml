@@ -1,10 +1,10 @@
 = simple_form_for(@client) do |f| 
 	.form-group
-		=f.input :logo 
-	.form-group
-		%label{:for => "novocliente"}Novo Cliente
+		%label= Client.human_attribute_name(:nome)
 		.input-group.input-group-lg
-			%span.input-group-addon#novocliente Novo Cliente
+			%span.input-group-addon#novocliente=Client.human_attribute_name(:nome)
 			=f.input :nome, :'aria-describedby' => "novocliente", input_html:{:class => :'form-control'},:wrapper => false, :label => false
+	.form-group
+		=f.input :logo, :label => Client.human_attribute_name(:logo)
 	.form-actions
 		= f.button :submit, :class => '"btn btn-default'
