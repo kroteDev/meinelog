@@ -36,5 +36,15 @@
 						%ul.dropdown-menu.sair						
 							%li= link_to t('nav.logout'), signout_path
 				-else
-					%li= link_to t("nav.sign_in_facebook"), "auth/facebook" 
-					%li= link_to t("nav.sign_in_twitter"), "auth/twitter" 
+					%li.dropdown
+						%a{:href => "#", :class => "dropdown-toggle", :"data-toggle" => "dropdown", :role => "button", :"aria-haspopup" => true, :"aria-expanded" => false}
+							=t('nav.sign_in')
+							%span.caret
+						%ul.dropdown-menu.sign_in
+							%li
+								%a{:href=> "auth/facebook" }
+									%i.fa.fa-facebook-square.fa-2x{:'aria-hidden' => "true"}
+								|
+								%a{:href=> "auth/twitter" }
+									%i.fa.fa-twitter-square.fa-2x{:'aria-hidden' => "true"}
+								

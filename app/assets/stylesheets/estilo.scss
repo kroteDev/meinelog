@@ -53,6 +53,14 @@ $laranja : #f05941;
 	.navbar-nav > li > a:hover, .navbar-nav > li > a:focus{
 		color:$laranja;
 	}
+	 .navbar-nav > .open > a, .navbar-nav > .open > a:hover,  .navbar-nav > .open > a:focus{
+		color: #f05941;
+		background-color: transparent;
+		border: 1px solid #f05941;
+		box-sizing: border-box;
+		padding-top: 39px;
+		padding-bottom: 39px;
+	}
 	.navbar-brand img{
 		width: 70%;
 	}
@@ -83,8 +91,14 @@ $laranja : #f05941;
 			position: absolute;
 			right: 8px;
 			bottom: 8px;
+		}		
+	}
+	.sign_in{
+		li a{
+			width: 46%;
+			box-sizing: border-box;
+			display: inline-block;
 		}
-		
 	}
 }
 .page-wrapper{
@@ -431,7 +445,7 @@ header.page-title{
 					position: absolute;
 					content: '';
 					background-color: #ccc;
-					width: 80%;
+					width: 100%;
 					left: 0;
 					bottom: 0;
 					height: 1px;
@@ -442,6 +456,23 @@ header.page-title{
 				&> a{
 				padding-top: 20px;
 				padding-bottom: 20px;
+			}
+		}
+		.navbar-nav > .open > a,  .navbar-nav > .open > a:hover, .navbar-nav > .open > a:focus{
+			padding-top: 20px;
+			padding-bottom: 20px;
+		}
+		.navbar-nav .open .dropdown-menu > li > a{
+			color:#fff;
+		}
+		ul.dropdown-menu{
+			li{
+				padding-top: 7px;
+				padding-bottom: 7px;
+				border-bottom: 1px solid #555;
+				a{
+					color:#fff;
+				}
 			}
 		}
 	}
