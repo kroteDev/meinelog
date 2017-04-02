@@ -161,6 +161,9 @@ header.page-title{
 		margin: 0px;
 		font-weight: bold;
 	}
+	a{
+		cursor: pointer;
+	}
 }
 .clients_wrapper{
 	width: 100%;
@@ -501,6 +504,7 @@ header.page-title{
 			h1{
 				font-size: 30px;				
 			}
+			
 		}
 		.client:last-child{
 			border:none;

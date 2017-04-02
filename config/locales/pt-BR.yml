@@ -1,4 +1,5 @@
 pt-BR:
+  del_confirm: 'Confirma a exclusão?'
   activerecord:
     errors:
       messages:
@@ -253,7 +254,9 @@ pt-BR:
   activities:
     index:
       activities_list: 'Lista de Atividades'
+      header_title: 'Suas atividades'
     new:
       new_activity:  'Nova Atividade'
     edit:
       edit_activity: 'Editar Atividade'
+      destroy: 'Deletar'
