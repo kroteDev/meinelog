@@ -17,3 +17,4 @@
 							=l(activity.day, format: :short) if activity.day.present?
 						.client
 							=activity.client.nome if activity.client_id.present?
+	= will_paginate @activities

@@ -382,18 +382,18 @@ header.page-title{
 			-o-transition: border-color ease-in-out 0.15s, box-shadow ease-in-out 0.15s;
 			transition: border-color ease-in-out 0.15s, box-shadow ease-in-out 0.15s;
 		}
-	}
-	.form-actions{
-		width: 100%;
-		text-align: center;
-		display: inline-block;
-		margin-top: 30px;
-		.btn{
-			padding: 0.2em 1.3em;
-			font-size: 1.8em;
-			color:#fff;
-			background-color: $laranja;
-		}
+	}	
+}
+.form-actions{
+	width: 100%;
+	text-align: center;
+	display: inline-block;
+	margin-top: 30px;
+	.btn{
+		padding: 0.2em 1.3em;
+		font-size: 1.8em;
+		color:#fff;
+		background-color: $laranja;
 	}
 }
 
@@ -500,6 +500,11 @@ header.page-title{
 			border-bottom: 1px solid white;
 			figure{
 				height: 240px;
+				img{
+					width: 120%;
+					max-width: 120%;
+					margin-left: -10%;
+				}
 			}
 			h1{
 				font-size: 30px;				
