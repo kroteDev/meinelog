@@ -5,14 +5,11 @@
 				%span.sr-only Toogle Navigation
 				%span.icon-bar
 				%span.icon-bar
-				%span.icon-bar
-			- if current_user					
-				.navbar-brand= link_to image_tag("/assets/logo_header"), activities_path, :title => 'Meine Log'		
-			-else
-				.navbar-brand= link_to image_tag("/assets/logo_header"), root_url, :title => 'Meine Log'
+				%span.icon-bar			
+			.navbar-brand= link_to image_tag("/assets/logo_header"), root_path, :title => 'Meine Log'
 		#collapse-navbar.collapse.navbar-collapse
 			%ul.nav.navbar-nav.navbar-right				
-				-if current_user
+				-if user_signed_in?
 					%li.dropdown
 						%a{:href => "#", :class => "dropdown-toggle", :"data-toggle" => "dropdown", :role => "button", :"aria-haspopup" => true, :"aria-expanded" => false}
 							=t('nav.clients')

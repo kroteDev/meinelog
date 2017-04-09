@@ -52,7 +52,6 @@ end
 gem 'simple_form', '~> 3.4'
 gem 'haml', '~> 4.0', '>= 4.0.7'
 gem 'bootstrap-sass', '~> 3.3', '>= 3.3.7'
-gem 'devise', '~> 4.2'
 gem 'paperclip', '~> 5.1'
 #active admin
 #gem 'activeadmin', github: 'activeadmin'
@@ -65,3 +64,4 @@ gem 'omniauth', '~> 1.6', '>= 1.6.1'
 gem 'omniauth-facebook', '~> 4.0'
 gem 'omniauth-twitter', '~> 1.4'
 gem 'will_paginate', '~> 3.1', '>= 3.1.5'
+gem 'devise', '~> 4.2', '>= 4.2.1'
