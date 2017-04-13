@@ -79,3 +79,4 @@ config/secrets.yml
 public/assets/
 #ignore database File
 config/database.yml
+db/seed_production.rb
