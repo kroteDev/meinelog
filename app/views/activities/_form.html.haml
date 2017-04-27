@@ -1,26 +1,30 @@
-= simple_form_for(@activity) do |f| 
-  = f.error_notification 
-  .form-group
-    = f.input :title,:wrapper => false, input_html:{:class => 'form-control'}, :label => Activity.human_attribute_name(:title)
-  .form-group
-    = f.input :description ,:wrapper => false, input_html:{:class => 'form-control'}, :label => Activity.human_attribute_name(:description)
-  .form-group.half_left
-    = f.input :day, as: :string, :wrapper => false, input_html:{:class => 'form-control', :readonly =>"readonly"}, :label => Activity.human_attribute_name(:day)
-  .form-group.half_right.duration
-    %label=Activity.human_attribute_name(:duration)
-    = f.input_field :duration, multiple: true, as: :string , :name => 'activity[duration(4i)]', :placeholder => '00'
-    %b :    
-    = f.input_field :duration, multiple: true, as: :string , :name => 'activity[duration(5i)]', :placeholder => '00'
-    /= f.input :duration ,:wrapper => false, input_html:{:class => 'form-control'}
-  .form-group
-    = f.input :priority , collection: @prioridade,:wrapper => false, input_html:{:class => 'form-control'}, include_blank: false, include_hidden: false, :label => Activity.human_attribute_name(:priority)
-  .form-group
-    %label=Activity.human_attribute_name(:client_id)
-    //= f.association :client, :label_method => 'nome' ,:wrapper => false, input_html:{:class => 'form-control'}
-    //=f.collection_select :client, current_user.clients.all.order('nome ASC'), :id, :nome , :input_blank => true , :wrapper => false , class: 'form-control'
-    =f.collection_select(:client_id, current_user.clients.all.order('nome ASC'), :id, :nome , {:input_blank => false} , {class: 'form-control'})
-  .form-group
-    = f.input :complete , :wrapper => false, input_html:{:class => 'form-control'}, :label => Activity.human_attribute_name(:complete)
+-if !@clients.empty?
+  = simple_form_for(@activity) do |f| 
+    = f.error_notification 
+    .form-group
+      = f.input :title,:wrapper => false, input_html:{:class => 'form-control'}, :label => Activity.human_attribute_name(:title)
+    .form-group
+      = f.input :description ,:wrapper => false, input_html:{:class => 'form-control'}, :label => Activity.human_attribute_name(:description)
+    .form-group.half_left
+      = f.input :day, as: :string, :wrapper => false, input_html:{:class => 'form-control', :readonly =>"readonly"}, :label => Activity.human_attribute_name(:day)
+    .form-group.half_right.duration
+      %label=Activity.human_attribute_name(:duration)
+      = f.input_field :duration, multiple: true, as: :string , :name => 'activity[duration(4i)]', :placeholder => '00'
+      %b :    
+      = f.input_field :duration, multiple: true, as: :string , :name => 'activity[duration(5i)]', :placeholder => '00'
+      /= f.input :duration ,:wrapper => false, input_html:{:class => 'form-control'}
+    .form-group
+      = f.input :priority , collection: @prioridade,:wrapper => false, input_html:{:class => 'form-control'}, include_blank: false, include_hidden: false, :label => Activity.human_attribute_name(:priority)
+    .form-group
+      %label=Activity.human_attribute_name(:client_id)
+      //= f.association :client, :label_method => 'nome' ,:wrapper => false, input_html:{:class => 'form-control'}
+      //=f.collection_select :client, current_user.clients.all.order('nome ASC'), :id, :nome , :input_blank => true , :wrapper => false , class: 'form-control'
+      =f.collection_select(:client_id, @clients, :id, :nome , {:input_blank => false} , {class: 'form-control'})
+    .form-group
+      = f.input :complete , :wrapper => false, input_html:{:class => 'form-control'}, :label => Activity.human_attribute_name(:complete)
 
-  .form-actions
-    = f.button :submit 
+    .form-actions
+      = f.button :submit
+-else
+  .light-warning
+    %h3=t(".empty_client_html", :href => link_to(t(".link"), new_client_path))

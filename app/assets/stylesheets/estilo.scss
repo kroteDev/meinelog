@@ -264,7 +264,7 @@ header.page-title{
 				padding:15px;
 				border-radius: 7px;
 				h1 {
-					font-size: 30px;
+					font-size: 2.4em;
 					a {
 						color:$purple;
 						margin-top: 0px;
@@ -272,8 +272,28 @@ header.page-title{
 						text-transform: capitalize;		
 					}	
 				}
-				p{
+				.description{
 					color:#686868;
+					h1{
+						font-size: 2.2em;
+						margin: 10px 0px;
+					}
+					h2{
+						font-size: 2.0em;
+						margin: 10px 0px;
+					}
+					h3{
+						font-size: 1.8em;
+						margin: 10px 0px;
+					}
+					h4{
+						font-size: 1.6em;
+						margin: 5px 0px;
+					}
+					h5{
+						font-size: 1.4em;
+						margin: 5px 0px;
+					}
 				}
 				.info{
 					margin:30px 0px 0px;
@@ -396,6 +416,15 @@ header.page-title{
 		background-color: $laranja;
 	}
 }
+textarea.form-control{
+	min-height: 300px;
+}
+.light-warning{
+	color:#f56262;
+	text-align: center;
+	padding-top: 20px;
+	font-family: 'Poppins Medium';
+}
 
 /*Main footer*/
 .main-footer{
@@ -513,6 +542,62 @@ header.page-title{
 		}
 		.client:last-child{
 			border:none;
+		}
+	}
+}
+.pagination-wrapper{
+	text-align: center;
+	.pagination{
+		min-width: 20%;
+		position: relative;
+		margin: 20px auto;
+		box-sizing:border-box;
+		padding-top: 10px;
+		text-align: center;
+		.previous_page{
+			float: left;
+			width: 25px;
+			height: 50px;
+			margin-right: 15px;		
+			position: relative;
+		}
+		.previous_page:before{
+			font: normal normal normal 50px/1 FontAwesome;
+			content: "\f104";
+			color: lightblue;	
+			position: absolute;
+			top: -10px;
+			left: 0px;
+
+		}
+		.next_page{
+			float: right;
+			width: 25px;
+			height: 50px;
+			overflow: hidden;
+			margin-left: 15px;
+		}
+		.next_page:after{
+			font: normal normal normal 50px/1 FontAwesome;
+			content: "\f105";
+			color: lightblue;	
+			position: absolute;
+			top: -0px;
+			right: 0px;
+		}
+		em.current{
+			font-size: 1.8em;
+			font-family: 'One Day';
+			color: $laranja ; 
+			padding:0px 10px;
+		}
+		a{
+			font-size: 1.8em;
+			font-family: 'One Day';
+			padding:0px 15px;
+		}
+		span.disabled:after, span.disabled:before{
+			color:lightgray !important;
 		}
 	}
 }

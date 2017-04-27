@@ -11,10 +11,11 @@
 				%span{:class => find_priority(activity.priority)}
 				.data{:class => "#{activity.complete}" }
 					%h1=link_to activity.title, edit_activity_path(activity) if activity.title.present?
-					%p=activity.description if activity.description.present?
+					.description=activity.description.html_safe if activity.description.present?
 					.info
 						.date
 							=l(activity.day, format: :short) if activity.day.present?
 						.client
 							=activity.client.nome if activity.client_id.present?
-	= will_paginate @activities
+	.pagination-wrapper
+		= will_paginate @activities

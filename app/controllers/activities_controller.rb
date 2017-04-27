@@ -5,7 +5,7 @@ class ActivitiesController < ApplicationController
   # GET /activities
   # GET /activities.json
   def index
-    @activities = current_user.activities.where(nil).order('day DESC').paginate(:page => params[:page], :per_page => 6)
+    @activities = current_user.activities.where(nil).order('day DESC').paginate(:page => params[:page], :per_page => 2)
     filtering_params(params).each do |key, value|
       @activities = @activities.public_send(key,value).paginate(:page => params[:page], :per_page => 6) if value.present?
     end
@@ -19,12 +19,12 @@ class ActivitiesController < ApplicationController
   # GET /activities/new
   def new
     @activity = current_user.activities.build
-    
+    @clients = current_user.clients.all.order('nome ASC')
   end
 
   # GET /activities/1/edit
   def edit
-    
+    @clients = current_user.clients.all.order('nome ASC')
   end
 
   # POST /activities
