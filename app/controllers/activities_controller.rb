@@ -5,9 +5,9 @@ class ActivitiesController < ApplicationController
   # GET /activities
   # GET /activities.json
   def index
-    @activities = current_user.activities.where(nil).order('day DESC').paginate(:page => params[:page], :per_page => 6)
+    @activities = current_user.activities.where(nil).order('day DESC').paginate(:page => params[:page], :per_page => 8)
     filtering_params(params).each do |key, value|
-      @activities = @activities.public_send(key,value).paginate(:page => params[:page], :per_page => 6) if value.present?
+      @activities = @activities.public_send(key,value).paginate(:page => params[:page], :per_page => 8) if value.present?
     end
   end
 
