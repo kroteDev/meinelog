@@ -5,9 +5,13 @@ class ActivitiesController < ApplicationController
   # GET /activities
   # GET /activities.json
   def index
-    @activities = current_user.activities.where(nil).order('day DESC').paginate(:page => params[:page], :per_page => 8)
-    filtering_params(params).each do |key, value|
-      @activities = @activities.public_send(key,value).paginate(:page => params[:page], :per_page => 8) if value.present?
+    respond_to do |format|
+      format.html{  @activities = current_user.activities.where(nil).order('day DESC').paginate(:page => params[:page], :per_page => 8)
+        filtering_params(params).each do |key, value|
+          @activities = @activities.public_send(key,value).paginate(:page => params[:page], :per_page => 8) if value.present?
+        end
+      }
+      format.json{redirect_to root_url}
     end
   end
 
@@ -34,10 +38,10 @@ class ActivitiesController < ApplicationController
     respond_to do |format|
       if @activity.save
         format.html { redirect_to activities_path, notice: 'Activity was successfully created.' }
-        format.json { render :show, status: :created, location: activities_path }
+        format.json{redirect_to root_url}
       else
         format.html { render :new }
-        format.json { render json: @activity.errors, status: :unprocessable_entity }
+        format.json{redirect_to root_url}
       end
     end
   end
@@ -48,10 +52,10 @@ class ActivitiesController < ApplicationController
     respond_to do |format|
       if @activity.update(activity_params)
         format.html { redirect_to activities_path, notice: 'Activity was successfully updated.' }
-        format.json { render :show, status: :ok, location: activities_path }
+        format.json{redirect_to root_url}
       else
         format.html { render :edit }
-        format.json { render json: @activity.errors, status: :unprocessable_entity }
+        format.json{redirect_to root_url}
       end
     end
   end
@@ -62,7 +66,7 @@ class ActivitiesController < ApplicationController
     @activity.destroy
     respond_to do |format|
       format.html { redirect_to activities_url, notice: 'Activity was successfully destroyed.' }
-      format.json { head :no_content }
+      format.json{redirect_to root_url}
     end
   end
   

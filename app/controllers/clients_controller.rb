@@ -29,10 +29,10 @@ class ClientsController < ApplicationController
     respond_to do |format|
       if @client.save
         format.html { redirect_to clients_path, notice: 'Client was successfully created.' }
-        format.json { render :show, status: :created, location: clients_path }
+        format.json{redirect_to root_url}
       else
         format.html { render :new }
-        format.json { render json: @client.errors, status: :unprocessable_entity }
+        format.json{redirect_to root_url}
       end
     end
   end
@@ -43,10 +43,10 @@ class ClientsController < ApplicationController
     respond_to do |format|
       if @client.update(client_params)
         format.html { redirect_to clients_path, notice: 'Client was successfully updated.' }
-        format.json { render :show, status: :ok, location: clients_path }
+        format.json{redirect_to root_url}
       else
         format.html { render :edit }
-        format.json { render json: clients_path.errors, status: :unprocessable_entity }
+        format.json{redirect_to root_url}
       end
     end
   end
@@ -57,7 +57,7 @@ class ClientsController < ApplicationController
     @client.destroy
     respond_to do |format|
       format.html { redirect_to clients_url, notice: 'Client was successfully destroyed.' }
-      format.json { head :no_content }
+      format.json{redirect_to root_url}
     end
   end
 
