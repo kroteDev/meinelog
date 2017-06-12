@@ -215,10 +215,10 @@ header.page-title{
 				transition: background-color 0.5s;
 				-moz-transition: background-color 0.5s;
 				-webkit-transition: background-color 0.5s;
-				h1{
+				h2{
 					opacity: 1;
 					position: absolute;
-					bottom: 0;
+					top: 0;
 					left: 0;
 					padding: 1em 1.5em;
 					width: 100%;
@@ -231,9 +231,15 @@ header.page-title{
 				   -webkit-transition: opacity .25s ease-in-out;
 				   a{
 				   	color:#fff;
+				   	font-weight: bold;
 				   }
 				}
-				
+				.info{
+					position: absolute;
+					bottom: 20px;
+					text-align: right;
+					width: 80%;
+				}
 			}
 		}		
 		&:hover{

@@ -8,7 +8,8 @@ class ActivitiesController < ApplicationController
     respond_to do |format|
       format.html{  @activities = current_user.activities.where(nil).order('day DESC').paginate(:page => params[:page], :per_page => 8)
         filtering_params(params).each do |key, value|
-          @activities = @activities.public_send(key,value).paginate(:page => params[:page], :per_page => 8) if value.present?
+          #@activities = @activities.public_send(key,value).paginate(:page => params[:page], :per_page => 8) if value.present?
+          @activities = @activities.public_send(key,value) if value.present?
         end
       }
       format.json{redirect_to root_url}
@@ -78,7 +79,7 @@ class ActivitiesController < ApplicationController
       redirect_to root_url, notice: "Atividade não encontrada ou não foi criada por você."
     end
     def filtering_params(params)
-      params.slice(:status, :client)
+      params.slice(:status, :projeto, :prioridade)
     end
     # Never trust parameters from the scary internet, only allow the white list through.
     def activity_params

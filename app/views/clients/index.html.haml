@@ -6,7 +6,12 @@
 			%figure
 				= image_tag(client.logo.url(:medium))	
 				%figcaption
-					%h1=link_to client.nome, edit_client_path(client)
+					%h2=link_to client.nome, edit_client_path(client)
+					.info
+						%h3
+							/=link_to "atividades", "activities?projeto=#{client.id}"
+							=Activity.where(:client_id => client).count
+							Atividade(s)
 					
       
 /= link_to t('.new_client'), new_client_path

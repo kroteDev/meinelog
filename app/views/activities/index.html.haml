@@ -16,6 +16,6 @@
 						.date
 							=l(activity.day, format: :short) if activity.day.present?
 						.client
-							=activity.client.nome if activity.client_id.present?
+							=link_to activity.client.nome, "activities?projeto=#{activity.client_id}"
 	.pagination-wrapper
 		= will_paginate @activities
