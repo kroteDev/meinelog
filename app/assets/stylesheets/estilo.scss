@@ -413,6 +413,16 @@ header.page-title{
 			-o-transition: border-color ease-in-out 0.15s, box-shadow ease-in-out 0.15s;
 			transition: border-color ease-in-out 0.15s, box-shadow ease-in-out 0.15s;
 		}
+		select{
+			width: 46%;
+			float: left;
+			margin-right: 5px;
+		}		
+		select:last-child{
+			float: right;
+			margin-left: 5px;
+			margin-right: 0px;
+		}
 	}	
 }
 .form-actions{
