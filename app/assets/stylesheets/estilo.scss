@@ -94,11 +94,22 @@ $laranja : #f05941;
 		}		
 	}
 	.sign_in{
-		li a{
-			width: 46%;
-			box-sizing: border-box;
+		text-align: center;
+		li{
 			display: inline-block;
+			width: 31.3%;
+			box-sizing:border-box;
+			overflow: hidden;
+			text-align: center;
+			
+		&:hover{
+			text-decoration: none;
+			}
 		}
+		li a i:before{
+			margin-left: -8px;
+		}
+		
 	}
 }
 .page-wrapper{
@@ -446,7 +457,31 @@ textarea.form-control{
 		}
 	}
 }
-
+/* notifications */
+#notifications{
+	position: absolute;
+	top: 100px;
+	content: '';
+	left: 0;
+	width: 100%;
+	height: 100px;	
+	z-index: 0;
+	text-align: center;
+	box-sizing: border-box;
+	line-height: 4.2em;
+	color: #fff;
+	font-size: 1.5em;
+	font-family: 'Montserrat';
+	div{
+		height: 100%;
+	}
+	div.notice{
+		background: rgba(135,216,211,0.95);
+	}
+	div.alert{
+		background-color: rgba(240,128,128,0.95)
+	}
+}
 
 /*Mobile*/
 @media (max-width: 1366px ){

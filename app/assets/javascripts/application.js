@@ -15,6 +15,7 @@
 //= require turbolinks
 //= require jquery-ui/widgets/datepicker
 //= require jquery-ui/i18n/datepicker-pt-BR
+//= require jquery-ui/effects/effect-drop
 //= require bootstrap-sprockets
 //= require_tree .
 
@@ -35,4 +36,9 @@ $(document).on('turbolinks:load', function() {
 	}, function() {
 	  $(this).find('.dropdown-menu').stop(true, true).delay(100).fadeOut(300);
 	});
+	setTimeout(function(){
+  	$('#notifications').hide( "drop", { direction: "up" }, function(){
+  		$(this).remove();
+  	});
+  }, 3500);
 });

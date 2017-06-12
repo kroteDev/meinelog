@@ -23,6 +23,12 @@
 		%meta{:name=>"viewport", :content=> "width=device-width, initial-scale=1.0"}/	
 	%body
 		=render 'layouts/header'
+		-if notice
+			#notifications
+				.notice= notice				
+		- elsif alert
+			#notifications
+				.alert= alert
 		.container-fluid.page-wrapper
 			.row
 				= yield

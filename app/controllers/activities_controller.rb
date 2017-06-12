@@ -37,7 +37,7 @@ class ActivitiesController < ApplicationController
     @activity = current_user.activities.build(activity_params)
     respond_to do |format|
       if @activity.save
-        format.html { redirect_to activities_path, notice: 'Activity was successfully created.' }
+        format.html { redirect_to activities_path, notice: 'A Atividade foi registrada com sucesso.' }
         format.json{redirect_to root_url}
       else
         format.html { render :new }
@@ -51,7 +51,7 @@ class ActivitiesController < ApplicationController
   def update
     respond_to do |format|
       if @activity.update(activity_params)
-        format.html { redirect_to activities_path, notice: 'Activity was successfully updated.' }
+        format.html { redirect_to activities_path, notice: 'A Atividade foi atualizada com sucesso.' }
         format.json{redirect_to root_url}
       else
         format.html { render :edit }
@@ -65,7 +65,7 @@ class ActivitiesController < ApplicationController
   def destroy
     @activity.destroy
     respond_to do |format|
-      format.html { redirect_to activities_url, notice: 'Activity was successfully destroyed.' }
+      format.html { redirect_to activities_url, notice: 'Atividade deletada.' }
       format.json{redirect_to root_url}
     end
   end
@@ -75,7 +75,7 @@ class ActivitiesController < ApplicationController
     def set_activity
       @activity = current_user.activities.find(params[:id])
       rescue ActiveRecord::RecordNotFound
-      redirect_to root_url, notice: "Activity not found or don't belong to you"
+      redirect_to root_url, notice: "Atividade não encontrada ou não foi criada por você."
     end
     def filtering_params(params)
       params.slice(:status, :client)
