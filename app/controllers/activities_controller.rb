@@ -30,6 +30,7 @@ class ActivitiesController < ApplicationController
   # GET /activities/1/edit
   def edit
     @clients = current_user.clients.all.order('nome ASC')
+    @comments = Comment.where(activity_id: @activity)
   end
 
   # POST /activities

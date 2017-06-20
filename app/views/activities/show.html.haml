@@ -1,0 +1,6 @@
+.container
+  %header.page-title
+    %h1=@activity.title
+    %a{:href => activity_path(@activity) , 'data-method': :delete, :rel => 'nofollow' , data: { confirm: t('del_confirm') }}  
+      =t('.destroy')
+      %i.fa.fa-times{:'aria-hidden' => "true"}

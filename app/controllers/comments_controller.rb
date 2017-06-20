@@ -1,10 +1,10 @@
 class CommentsController < ApplicationController
   before_action :set_comment, only: [:show, :edit, :update, :destroy]
-
+  before_action :find_comments, only: [:index, :new, :create]
   # GET /comments
   # GET /comments.json
   def index
-    @comments = Comment.all
+    #@comments = Comment.all
   end
 
   # GET /comments/1
@@ -70,5 +70,8 @@ class CommentsController < ApplicationController
     # Never trust parameters from the scary internet, only allow the white list through.
     def comment_params
       params.require(:comment).permit(:body, :activity_id, :user_id)
+    end
+    def find_comments
+      @comments = Comment.where(activity_id: params[:activity_id])
     end
 end
