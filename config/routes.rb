@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :comments
   root 'home#index'
   devise_for :users    
   resources :activities, :clients , except: [:show]  

@@ -1,0 +1,7 @@
+= simple_form_for(@comment) do |f|
+  .form-inputs
+    = f.input :body 
+    = f.association :activity 
+    /= f.association :user   
+  .form-actions
+    = f.button :submit   

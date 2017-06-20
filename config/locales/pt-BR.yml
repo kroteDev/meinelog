@@ -251,6 +251,7 @@ pt-BR:
       new_client: 'Novo Cliente/Projeto'
     edit:
       edit_client: 'Editar Cliente/Projeto'
+      destroy: 'Deletar Cliente/Projeto'
   activities:
     index:
       activities_list: 'Lista de Atividades'
