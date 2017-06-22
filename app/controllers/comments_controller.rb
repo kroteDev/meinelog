@@ -1,6 +1,7 @@
 class CommentsController < ApplicationController
   before_action :set_comment, only: [:show, :edit, :update, :destroy]
   before_action :find_comments, only: [:index, :new, :create]
+  before_action :find_activity
   # GET /comments
   # GET /comments.json
   def index
@@ -14,7 +15,7 @@ class CommentsController < ApplicationController
 
   # GET /comments/new
   def new    
-    @comment = current_user.comments.build
+    @comment = current_user.comments.build        
   end
 
   # GET /comments/1/edit
@@ -25,11 +26,12 @@ class CommentsController < ApplicationController
   # POST /comments.json
   def create
     @comment = current_user.comments.build(comment_params)
-
+    @comment.activity_id = @activity.id
     respond_to do |format|
       if @comment.save
-        format.html { redirect_to @comment, notice: 'Comentário Criado com Sucesso' }
-        format.json { render :show, status: :created, location: @comment }
+        format.html { redirect_to @activity, notice: 'Comentário Criado com Sucesso' }
+        #format.json { render :show, status: :created, location: @comment }
+        format.js
       else
         format.html { render :new }
         format.json { render json: @comment.errors, status: :unprocessable_entity }
@@ -73,5 +75,8 @@ class CommentsController < ApplicationController
     end
     def find_comments
       @comments = Comment.where(activity_id: params[:activity_id])
+    end
+    def find_activity
+      @activity = Activity.find(params[:activity_id])
     end
 end

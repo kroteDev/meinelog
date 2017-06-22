@@ -15,10 +15,10 @@
   <tbody>
     <% @comments.each do |comment| %>
       <tr>
-        <td><%= comment.id %></td>
+        <td><%= comment.body %></td>
         <td><%= comment.activity.title %></td>
         <td><%= comment.user.name %></td>
-        <td><%= link_to 'Edit', edit_activity_comment(comment) %></td>
+        
       </tr>
     <% end %>
   </tbody>

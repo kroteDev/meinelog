@@ -1,7 +1,7 @@
-= simple_form_for(@comment) do |f|
+= simple_form_for ([@activity, @activity.comments.build]), data: { remote: true } do |f|
   .form-inputs
-    = f.input :body 
-    = f.association :activity 
+    = f.input :body , :label => false,:wrapper => false, input_html:{:class => 'form-control'}
+    /= f.association :activity 
     /= f.association :user   
   .form-actions
-    = f.button :submit   
+    = f.button :submit , :value => t('.new_comment')

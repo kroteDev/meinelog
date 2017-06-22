@@ -12,7 +12,7 @@
       /= f.input_field :duration, multiple: true, as: :string , :name => 'activity[duration(4i)]', :placeholder => '00'
       /%b :    
       /= f.input_field :duration, multiple: true, as: :string , :name => 'activity[duration(5i)]', :placeholder => '00'
-      = f.input :duration ,:wrapper => false, input_html:{:class => 'form-control'}
+      = f.input :duration ,:wrapper => false, input_html:{:class => 'form-control'}, :start_hour => 00, :prompt => true
     .form-group
       = f.input :priority , collection: @prioridade,:wrapper => false, input_html:{:class => 'form-control'}, include_blank: false, include_hidden: false, :label => Activity.human_attribute_name(:priority)
     .form-group

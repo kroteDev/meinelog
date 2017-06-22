@@ -261,9 +261,14 @@ pt-BR:
     edit:
       edit_activity: 'Editar Atividade'
       destroy: 'Deletar'
+      comment: 'Comentário'
+      new_comment: 'Novo Comentário'
     form:
       empty_client_html: "Não foi encontrado nenhum cliente/projeto registrado. Registre um novo clicando %{href}."
       link: "Aqui"
+  comments:
+    form:
+      new_comment: "Adicionar Comentário"
   will_paginate:
     previous_label: ''
     next_label: ''

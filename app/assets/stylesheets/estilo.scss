@@ -32,6 +32,9 @@
 }
 $purple : #2f1b41;
 $laranja : #f05941;
+$dark-grey :#625d52;
+$salmao: #f9eddc;
+$light-salmao:#faf1e5 ;
 /*Nav Bar Changes */
 .navbar-default{
 	background-color: $purple;
@@ -378,7 +381,7 @@ header.page-title{
 				background-color: #c31207;
 			}
 		}
-	}
+	}	
 }
 
 .new_activity, .edit_activity{
@@ -444,13 +447,65 @@ header.page-title{
 	}
 }
 textarea.form-control{
-	min-height: 300px;
+	min-height: 350px;
 }
 .light-warning{
 	color:#f56262;
 	text-align: center;
 	padding-top: 20px;
 	font-family: 'Poppins Medium';
+}
+.activity_comments{
+	margin-top: 20px;	
+	background-color: $salmao ;
+	border-radius: 10px;
+	margin-bottom: 20px;
+	padding-bottom: 20px;
+	h3{
+		color:#004444;
+		border-bottom: 1px solid #b3b3b3;
+		padding-bottom: 10px;
+		margin-bottom: 30px;
+	}
+	.comments{
+		margin-bottom: 20px;
+		article {
+			padding-left: 0px;
+			.comment{
+				list-style: none;
+				width: 100%;
+				color: $dark-grey;				
+				margin-bottom: 25px;
+				font-size: 1.3em;				
+				padding: 20px;
+				box-sizing: border-box;
+				background-color: $light-salmao;
+				header{
+					margin-bottom: 10px;
+					.user{ 
+						display: inline-block; 
+						width: 59%; 
+						font-weight: bold;
+						color:#004444;
+					}
+					.date{ 
+						display: inline-block; 
+						width: 40%; 
+						text-align: right;
+						font-weight: lighter;
+						font-style: italic;
+						font-size: 0.75em;
+					}
+				}
+			}
+		}
+	}
+	.new_comment{
+		margin-top: 20px;
+		textarea{
+			min-height: 220px;	
+		}
+	}
 }
 
 /*Main footer*/
