@@ -30,15 +30,14 @@
 	font-weight: bold;
 	font-style: normal;
 }
-$purple : #2f1b41;
-$laranja : #f05941;
-$dark-grey :#625d52;
-$salmao: #f9eddc;
-$light-salmao:#faf1e5 ;
+$cor_1 : #2f1b41;
+$cor_2 : #f05941;
+$cor_3 : #625d52;
+$cor_4 : #f9eddc;
+$cor_5 : #faf1e5;
 /*Nav Bar Changes */
 .navbar-default{
-	background-color: $purple;
-	min-height: 100px;
+	background-color: $cor_1;	
 	border-radius: 0px;
 	border-left: 0px;
 	border-right: 0px;
@@ -48,27 +47,27 @@ $light-salmao:#faf1e5 ;
 	z-index: 1;
 	.navbar-nav > li > a{
 		color:#fff;
-		padding-top: 40px;
-		padding-bottom: 40px;
+		padding-top: 25px;
+		padding-bottom: 25px;
 		font-family: 'Poppins', serif;
-		font-size: 18px;
+		font-size: 16px;
 	}
 	.navbar-nav > li > a:hover, .navbar-nav > li > a:focus{
-		color:$laranja;
+		color:$cor_2;
 	}
 	 .navbar-nav > .open > a, .navbar-nav > .open > a:hover,  .navbar-nav > .open > a:focus{
 		color: #f05941;
 		background-color: transparent;
 		border: 1px solid #f05941;
 		box-sizing: border-box;
-		padding-top: 39px;
-		padding-bottom: 39px;
+		padding-top: 24px;
+		padding-bottom: 24px;
 	}
 	.navbar-brand img{
-		width: 150px;
+		width: 100px;
 	}
 	ul.dropdown-menu{
-		background-color: $purple;
+		background-color: $cor_1;
 		text-align: right;
 		border:0px;
 		li a{
@@ -77,7 +76,7 @@ $light-salmao:#faf1e5 ;
 			font-size: 16px;
 		}
 		li a:hover, li a:focus{
-			color: $laranja;
+			color: $cor_2;
 			background-color: transparent;
 			border-bottom: 1px solid;
 		}
@@ -120,7 +119,7 @@ $light-salmao:#faf1e5 ;
 }
 .banner-home{
 	width: 100%;
-	min-height: 85vh;
+	min-height: 92vh;
 	position: relative;
 	background: url("todolist.jpg") no-repeat center;
 	background-size: cover;	
@@ -156,7 +155,7 @@ $light-salmao:#faf1e5 ;
     	font-size: 3.2em;
     }
     .signup {
-	    background-color: $laranja;
+	    background-color: $cor_2;
 	    padding: 10px 20px;
 	    margin-top: 30px;
 	    color: #fff;
@@ -177,6 +176,14 @@ header.page-title{
 	}
 	a{
 		cursor: pointer;
+	}
+	.clients_list{
+		display: flex;
+		justify-content:center;
+		a{
+			
+			margin:5px ;
+		}
 	}
 }
 .clients_wrapper{
@@ -286,7 +293,7 @@ header.page-title{
 				h1 {
 					font-size: 2.4em;
 					a {
-						color:$purple;
+						color:$cor_1;
 						margin-top: 0px;
 						font-family: 'Poppins Medium';
 						text-transform: capitalize;		
@@ -443,7 +450,7 @@ header.page-title{
 		padding: 0.2em 1.3em;
 		font-size: 1.8em;
 		color:#fff;
-		background-color: $laranja;
+		background-color: $cor_2;
 	}
 }
 textarea.form-control{
@@ -457,7 +464,7 @@ textarea.form-control{
 }
 .activity_comments{
 	margin-top: 20px;	
-	background-color: $salmao ;
+	background-color: $cor_4 ;
 	border-radius: 10px;
 	margin-bottom: 20px;
 	padding-bottom: 20px;
@@ -474,12 +481,12 @@ textarea.form-control{
 			.comment{
 				list-style: none;
 				width: 100%;
-				color: $dark-grey;				
+				color: $cor_3;				
 				margin-bottom: 25px;
 				font-size: 1.3em;				
 				padding: 20px;
 				box-sizing: border-box;
-				background-color: $light-salmao;
+				background-color: $cor_5;
 				header{
 					margin-bottom: 10px;
 					.user{ 
@@ -511,7 +518,7 @@ textarea.form-control{
 /*Main footer*/
 .main-footer{
 	position: relative;
-	border-top: 4px solid $laranja;
+	border-top: 4px solid $cor_2;
 	background-color: #707171;
 	text-align: center;
 	color:#fff;
@@ -524,14 +531,14 @@ textarea.form-control{
 		margin: 15px 0px;
 		text-align: right;
 		a{
-			color:$laranja;
+			color:$cor_2;
 		}
 	}
 }
 /* notifications */
 #notifications{
 	position: absolute;
-	top: 100px;
+	top: 71px;
 	content: '';
 	left: 0;
 	width: 100%;
@@ -694,7 +701,7 @@ textarea.form-control{
 		em.current{
 			font-size: 1.8em;
 			font-family: 'One Day';
-			color: $laranja ; 
+			color: $cor_2 ; 
 			padding:0px 10px;
 		}
 		a{

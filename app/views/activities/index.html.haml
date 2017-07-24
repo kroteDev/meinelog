@@ -4,6 +4,9 @@
 =og_url 'activities'
 %header.page-title
 	%h1=t('.activities_list')
+	.clients_list		
+		- @clients.each do |client|
+			=link_to client.nome, activities_url(:status => params[:status], :projeto => client.id )
 .container
 	%ul.activities_list
 		- @activities.each do |activity|

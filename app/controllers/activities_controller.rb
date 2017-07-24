@@ -13,7 +13,8 @@ class ActivitiesController < ApplicationController
         end
       }
       format.json{redirect_to root_url}
-    end
+    end    
+    @clients = current_user.clients.all.order('nome ASC')
   end
 
   # GET /activities/1
