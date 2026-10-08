@@ -61,20 +61,5 @@ services:
       retries: 10
     restart: unless-stopped
 
-  minio:
-    container_name: meinelog_ai_minio
-    image: minio/minio:latest
-    command: server /data --console-address ":9001"
-    ports:
-      - "${MINIO_PORT:-9000}:9000"
-      - "${MINIO_CONSOLE_PORT:-9001}:9001"
-    environment:
-      MINIO_ROOT_USER: ${MINIO_ROOT_USER}
-      MINIO_ROOT_PASSWORD: ${MINIO_ROOT_PASSWORD}
-    volumes:
-      - meinelog_ai_minio_data:/data
-    restart: unless-stopped
-
 volumes:
   meinelog_ai_postgres_data:
-  meinelog_ai_minio_data:

@@ -1,6 +1,6 @@
 # meinelog_ai
 
-Full-stack template: Rails API + Next.js Web + Postgres + MinIO, fully containerized for DigitalOcean deployment.
+Full-stack template: Rails API + Next.js Web + Postgres, fully containerized for DigitalOcean deployment.
 
 ## Stack
 
@@ -10,7 +10,6 @@ Full-stack template: Rails API + Next.js Web + Postgres + MinIO, fully container
 - **Web:** Next.js (App Router, TypeScript, Tailwind) — `node:22-alpine` — `./web`
   - `web/Dockerfile` runs `npm install` and `npm run dev` on port `3000`.
 - **DB:** `postgres:17` with healthcheck (`pg_isready`), persisted in `meinelog_ai_postgres_data`.
-- **Storage:** MinIO (`minio/minio:latest`) — S3-compatible object storage, persisted in `meinelog_ai_minio_data`.
 - **Orchestration:** Docker Compose with `user: "${UID:-1000}:${GID:-1000}"` to avoid root-owned files on Linux.
 
 Scaffolded with isolated Docker containers (no global Ruby/Node version conflicts).
@@ -28,7 +27,7 @@ cd meinelog_ai
 
 # 2. Configure environment
 cp .env.example .env
-# Edit .env: DATABASE_NAME, DATABASE_USER, DATABASE_PASSWORD, API_PORT, WEB_PORT, MINIO_*
+# Edit .env: DATABASE_NAME, DATABASE_USER, DATABASE_PASSWORD, API_PORT, WEB_PORT
 
 # 3. Build + start everything
 docker compose up --build
@@ -36,8 +35,6 @@ docker compose up --build
 # Services:
 # - Web:   http://localhost:${WEB_PORT:-5001} -> container 3000
 # - API:   http://localhost:${API_PORT:-5000} -> container 3000
-# - MinIO API:     http://localhost:9000
-# - MinIO Console: http://localhost:9001
 ```
 
 Detached mode:
@@ -61,12 +58,10 @@ Copy `.env.example` to `.env` (never commit `.env` — root `.gitignore` contain
 | `DATABASE_PASSWORD` | api, postgres | PG password |
 | `API_HOST` / `API_PORT` | web, api | API host + host port mapping (`${API_PORT}:3000`) |
 | `WEB_HOST` / `WEB_PORT` | web, api | Web host + host port mapping (`${WEB_PORT}:3000`) |
-| `MINIO_ROOT_USER` | minio | MinIO admin user |
-| `MINIO_ROOT_PASSWORD` | minio | MinIO admin password (min 8 chars) |
-| `MINIO_PORT` | minio | S3 API port (default `9000`) |
-| `MINIO_CONSOLE_PORT` | minio | Console port (default `9001`) |
-| `MINIO_ENDPOINT` | api/web | e.g. `http://localhost:9000` or `http://minio:9000` in-compose |
-| `MINIO_BUCKET` | api | Default bucket, e.g. `meinelog_ai-bucket` (create via console or SDK) |
+
+> Object storage (MinIO/S3) was dropped: MinIO removed its official
+> Docker Hub image and restricted quay.io pulls, and nothing in the
+> app uses S3 yet (ActiveStorage is local). Re-add when needed.
 
 UID/GID mapping: Compose uses `user: "${UID:-1000}:${GID:-1000}"`. On Linux export `UID=$(id -u) GID=$(id -g)` or rely on defaults.
 
@@ -87,14 +82,12 @@ docker compose exec web npm install <pkg>
 
 # Postgres psql
 docker compose exec postgres psql -U ${DATABASE_USER} -d ${DATABASE_NAME}_development
-
-# MinIO: create bucket via console http://localhost:9001, or mc CLI
 ```
 
 ## Deploy notes (DigitalOcean)
 
 - Docker was chosen for server parity: same images locally and on Droplet.
-- Push repo to server, `cp .env.example .env`, set strong `DATABASE_PASSWORD` / `MINIO_ROOT_PASSWORD`, then `docker compose up -d --build`.
+- Push repo to server, `cp .env.example .env`, set strong `DATABASE_PASSWORD`, then `docker compose up -d --build`.
 - Put a reverse proxy (Caddy/Nginx) or DO Load Balancer in front of `${WEB_PORT}` / `${API_PORT}` for TLS.
 
 ## Project layout
@@ -106,7 +99,7 @@ docker compose exec postgres psql -U ${DATABASE_USER} -d ${DATABASE_NAME}_develo
 │   └── config/database.yml  # ENV-driven
 ├── web/               # create-next-app web
 │   └── Dockerfile     # node:22-alpine dev image
-├── docker-compose.yml # web + api + postgres + minio
+├── docker-compose.yml # web + api + postgres
 ├── .env.example       # copy to .env
 └── .gitignore         # *.env
 ```
