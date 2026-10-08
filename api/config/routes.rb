@@ -7,6 +7,8 @@ Rails.application.routes.draw do
         sessions: "api/v1/users/sessions",
         registrations: "api/v1/users/registrations"
       }
+
+      resources :projects
     end
   end
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
