@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[8.1].define(version: 2026_10_08_223934) do
+ActiveRecord::Schema[8.1].define(version: 2026_10_09_013838) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "pg_catalog.plpgsql"
   enable_extension "pgcrypto"
@@ -22,6 +22,18 @@ ActiveRecord::Schema[8.1].define(version: 2026_10_08_223934) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["user_id"], name: "index_projects_on_user_id"
+  end
+
+  create_table "tasks", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
+    t.string "title", null: false
+    t.text "description"
+    t.boolean "complete", default: false, null: false
+    t.integer "priority", default: 0
+    t.date "due_date"
+    t.bigint "user_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_tasks_on_user_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -43,4 +55,5 @@ ActiveRecord::Schema[8.1].define(version: 2026_10_08_223934) do
   end
 
   add_foreign_key "projects", "users"
+  add_foreign_key "tasks", "users"
 end
