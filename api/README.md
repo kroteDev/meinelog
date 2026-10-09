@@ -103,6 +103,8 @@ Success `200`: `{ "status": { "code": 200, "message": "Logged out successfully."
 
 ### Projects (all require `Authorization: Bearer {{jwt}}`)
 
+#### Create — `POST /api/v1/projects`
+
 ```http
 POST http://localhost:5000/api/v1/projects
 Content-Type: application/json
@@ -118,20 +120,73 @@ Authorization: Bearer {{jwt}}
 }
 ```
 
+Success `200` (the project belongs to the token owner —
+`user_id` is never accepted from params):
+
+```json
+{
+  "data": {
+    "id": "02003f8e-5690-47b6-847b-741cc344415c",
+    "name": "Meu primeiro projeto",
+    "description": "Criado via API com token JWT",
+    "user_id": 1,
+    "created_at": "2026-10-08T23:06:12.292Z",
+    "updated_at": "2026-10-08T23:06:12.292Z"
+  }
+}
+```
+
+Validation failure `422`:
+
+```json
+{ "errors": ["Name can't be blank"] }
+```
+
+#### List / show / update / delete
+
 ```http
 GET http://localhost:5000/api/v1/projects
 GET http://localhost:5000/api/v1/projects?sort=name
 GET http://localhost:5000/api/v1/projects?sort=-created_at
 GET http://localhost:5000/api/v1/projects/:id
+Authorization: Bearer {{jwt}}
+```
+
+List success `200`:
+
+```json
+{
+  "data": [
+    {
+      "id": "4530b9a3-ac40-4285-bf77-98720ee2c961",
+      "name": "Segundo projeto",
+      "description": "Para testar ordenacao",
+      "user_id": 1,
+      "created_at": "2026-10-08T23:06:12.325Z",
+      "updated_at": "2026-10-08T23:06:12.325Z"
+    }
+  ]
+}
+```
+
+```http
 PATCH http://localhost:5000/api/v1/projects/:id
+Content-Type: application/json
+Authorization: Bearer {{jwt}}
+```
+
+```json
+{ "project": { "name": "Nome atualizado" } }
+```
+
+```http
 DELETE http://localhost:5000/api/v1/projects/:id
+Authorization: Bearer {{jwt}}
 ```
 
 Sortable fields: `name`, `created_at`, `updated_at` (`-` prefix =
-descending, default `created_at` descending). Projects are always
-scoped to the logged-in user (`user_id` is never accepted from params).
-`DELETE` returns `204 No Content`. Missing/invalid/revoked token
-returns `401`.
+descending, default `created_at` descending). `DELETE` returns
+`204 No Content`. Missing/invalid/revoked token returns `401`.
 
 ## Useful commands
 
