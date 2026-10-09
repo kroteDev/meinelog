@@ -120,7 +120,7 @@ Authorization: Bearer {{jwt}}
 }
 ```
 
-Success `200` (the project belongs to the token owner —
+Success `201` (the project belongs to the token owner —
 `user_id` is never accepted from params):
 
 ```json

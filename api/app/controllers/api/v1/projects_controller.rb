@@ -1,16 +1,14 @@
 # frozen_string_literal: true
 
 class Api::V1::ProjectsController < ApplicationController
-  include RackSessionsFix
-  before_action :authenticate_user!
-  before_action :set_project, only: %i[show update destroy]
+  include Ownable
 
   SORTABLE_FIELDS = %w[name created_at updated_at].freeze
 
   # GET /api/v1/projects
   # Optional sorting: ?sort=name (asc) or ?sort=-created_at (desc)
   def index
-    projects = current_user.projects.order(sort_clause)
+    projects = owned_collection.order(sort_clause)
 
     render json: {
       data: projects.map { |project| ProjectSerializer.new(project).serializable_hash[:data][:attributes] }
@@ -26,7 +24,7 @@ class Api::V1::ProjectsController < ApplicationController
 
   # POST /api/v1/projects
   def create
-    project = current_user.projects.build(project_params)
+    project = owned_collection.build(project_params)
 
     if project.save
       render json: {
@@ -59,10 +57,6 @@ class Api::V1::ProjectsController < ApplicationController
   end
 
   private
-
-  def set_project
-    @project = current_user.projects.find(params[:id])
-  end
 
   def project_params
     params.require(:project).permit(:name, :description)
