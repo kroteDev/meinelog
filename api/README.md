@@ -30,7 +30,7 @@ Base URL (dev defaults): `http://localhost:5000`
    response header**: `Authorization: Bearer <jwt>`.
 2. Send it back on every authenticated request:
    `Authorization: Bearer <jwt>`.
-3. Log out (`DELETE /api/v1/logout`) revokes the token — reusing it
+3. Log out (`DELETE /api/v1/signout`) revokes the token — reusing it
    returns `401`.
 
 ## Endpoint examples (Postman-ready)
@@ -71,10 +71,10 @@ Success `200`:
 }
 ```
 
-### Log in — `POST /api/v1/login`
+### Log in — `POST /api/v1/signin`
 
 ```http
-POST http://localhost:5000/api/v1/login
+POST http://localhost:5000/api/v1/signin
 Content-Type: application/json
 ```
 
@@ -92,10 +92,10 @@ Success `200` — same shape as sign up, plus the
 In Postman, save it as a collection variable (e.g. `{{jwt}}`)
 and use `Authorization: Bearer {{jwt}}` on the next requests.
 
-### Log out — `DELETE /api/v1/logout`
+### Log out — `DELETE /api/v1/signout`
 
 ```http
-DELETE http://localhost:5000/api/v1/logout
+DELETE http://localhost:5000/api/v1/signout
 Authorization: Bearer {{jwt}}
 ```
 
