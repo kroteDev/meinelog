@@ -13,13 +13,13 @@ class Api::V1::Users::SessionsController < Devise::SessionsController
     }, status: :ok
   end
 
-  def respond_to_on_destroy
+  def respond_to_on_destroy(non_navigational_status: :no_content)
     if request.headers["Authorization"].present?
       jwt_payload = JWT.decode(
         request.headers["Authorization"].split(" ").last,
         Rails.application.credentials.devise_jwt_secret_key!
       ).first
-      current_user = User.find(jwt_payload["sub"])
+      current_user = User.find_by(id: jwt_payload["sub"])
     end
 
     if current_user
@@ -31,5 +31,9 @@ class Api::V1::Users::SessionsController < Devise::SessionsController
         status: { code: 401, message: "Couldn't find an active session." }
       }, status: :unauthorized
     end
+  rescue JWT::DecodeError
+    render json: {
+      status: { code: 401, message: "Couldn't find an active session." }
+    }, status: :unauthorized
   end
 end
