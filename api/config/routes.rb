@@ -13,6 +13,7 @@ Rails.application.routes.draw do
       resources :projects
       resources :tasks do
         patch :complete, on: :member
+        resources :comments, only: %i[index show create update destroy]
       end
     end
   end
