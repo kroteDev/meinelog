@@ -29,7 +29,8 @@ class Api::V1::TasksController < ApplicationController
 
   # POST /api/v1/tasks
   def create
-    task = owned_collection.build(task_params)
+    task = owned_collection.build(task_params.except(:project_id))
+    task.project = owned_project
 
     if task.save
       render json: {
@@ -44,7 +45,10 @@ class Api::V1::TasksController < ApplicationController
 
   # PATCH/PUT /api/v1/tasks/:id
   def update
-    if @task.update(task_params)
+    @task.assign_attributes(task_params.except(:project_id))
+    @task.project = owned_project if task_params.key?(:project_id)
+
+    if @task.save
       render json: {
         data: TaskSerializer.new(@task).serializable_hash[:data][:attributes]
       }, status: :ok
@@ -81,7 +85,17 @@ class Api::V1::TasksController < ApplicationController
   end
 
   def task_params
-    params.require(:task).permit(:title, :description, :complete, :priority, :due_date)
+    params.require(:task).permit(:title, :description, :complete, :priority, :due_date, :project_id)
+  end
+
+  # Resolves project_id through the token owner's projects, so a
+  # foreign id resolves to 404 like any other cross-user access.
+  # Explicit null unassigns the task back to the inbox.
+  def owned_project
+    return unless task_params.key?(:project_id)
+
+    id = task_params[:project_id]
+    id.present? ? current_user.projects.find(id) : nil
   end
 
   def sort_clause
