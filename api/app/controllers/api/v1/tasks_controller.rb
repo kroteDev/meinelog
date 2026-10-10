@@ -3,6 +3,11 @@
 class Api::V1::TasksController < ApplicationController
   include Ownable
 
+  # NOTE: re-declares the Ownable filter with the full member-action
+  # list. Rails replaces (not appends) a callback with the same name,
+  # so `only: %i[complete]` alone would drop show/update/destroy.
+  before_action :set_owned_resource, only: %i[show update destroy complete]
+
   SORTABLE_FIELDS = %w[title priority due_date created_at updated_at].freeze
 
   # GET /api/v1/tasks
@@ -56,7 +61,24 @@ class Api::V1::TasksController < ApplicationController
     head :no_content
   end
 
+  # PATCH /api/v1/tasks/:id/complete
+  def complete
+    if @task.update(complete_params)
+      render json: {
+        data: TaskSerializer.new(@task).serializable_hash[:data][:attributes]
+      }, status: :ok
+    else
+      render json: {
+        errors: @task.errors.full_messages
+      }, status: :unprocessable_entity
+    end
+  end
+
   private
+
+  def complete_params
+    params.require(:task).permit(:complete)
+  end
 
   def task_params
     params.require(:task).permit(:title, :description, :complete, :priority, :due_date)
