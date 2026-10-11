@@ -1,10 +1,10 @@
 import type {
   CreateProjectRequestDto,
   UpdateProjectRequestDto,
-} from "../../../domain/api/ProjectRequests";
-import type { RawProjectDto } from "../../../domain/api/RawProjectDto";
-import type { CreateProjectInput, UpdateProjectInput } from "../../../domain/repositories/IProjectRepository";
-import type { Project } from "../../../domain/entities/Project";
+} from "@/domain/api/ProjectRequests";
+import type { RawProjectDto } from "@/domain/api/RawProjectDto";
+import type { CreateProjectInput, UpdateProjectInput } from "@/domain/repositories/IProjectRepository";
+import type { Project } from "@/domain/entities/Project";
 
 export function rawToProject(raw: RawProjectDto): Project {
   return {

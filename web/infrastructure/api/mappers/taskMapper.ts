@@ -2,10 +2,10 @@ import type {
   CompleteTaskRequestDto,
   CreateTaskRequestDto,
   UpdateTaskRequestDto,
-} from "../../../domain/api/TaskRequests";
-import type { RawTaskDto } from "../../../domain/api/RawTaskDto";
-import type { CreateTaskInput, UpdateTaskInput } from "../../../domain/repositories/ITaskRepository";
-import type { Task } from "../../../domain/entities/Task";
+} from "@/domain/api/TaskRequests";
+import type { RawTaskDto } from "@/domain/api/RawTaskDto";
+import type { CreateTaskInput, UpdateTaskInput } from "@/domain/repositories/ITaskRepository";
+import type { Task } from "@/domain/entities/Task";
 
 function toWireDate(date: Date | null | undefined): string | null | undefined {
   if (date === undefined) return undefined;

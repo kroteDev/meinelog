@@ -1,17 +1,17 @@
-import type { ApiRequestFn, TokenProvider } from "../httpClient";
-import type { RawTaskDto } from "../../../domain/api/RawTaskDto";
+import type { ApiRequestFn, TokenProvider } from "@/infrastructure/api/httpClient";
+import type { RawTaskDto } from "@/domain/api/RawTaskDto";
 import type {
   CreateTaskInput,
   ITaskRepository,
   UpdateTaskInput,
-} from "../../../domain/repositories/ITaskRepository";
-import type { Task } from "../../../domain/entities/Task";
+} from "@/domain/repositories/ITaskRepository";
+import type { Task } from "@/domain/entities/Task";
 import {
   rawToTask,
   toRawComplete,
   toRawCreateTask,
   toRawUpdateTask,
-} from "../mappers/taskMapper";
+} from "@/infrastructure/api/mappers/taskMapper";
 
 export class HttpTaskRepository implements ITaskRepository {
   private readonly request: ApiRequestFn;

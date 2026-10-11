@@ -1,12 +1,12 @@
-import type { ApiRequestFn, TokenProvider } from "../httpClient";
-import type { RawProjectDto } from "../../../domain/api/RawProjectDto";
+import type { ApiRequestFn, TokenProvider } from "@/infrastructure/api/httpClient";
+import type { RawProjectDto } from "@/domain/api/RawProjectDto";
 import type {
   CreateProjectInput,
   IProjectRepository,
   UpdateProjectInput,
-} from "../../../domain/repositories/IProjectRepository";
-import type { Project } from "../../../domain/entities/Project";
-import { rawToProject, toRawCreateProject, toRawUpdateProject } from "../mappers/projectMapper";
+} from "@/domain/repositories/IProjectRepository";
+import type { Project } from "@/domain/entities/Project";
+import { rawToProject, toRawCreateProject, toRawUpdateProject } from "@/infrastructure/api/mappers/projectMapper";
 
 export class HttpProjectRepository implements IProjectRepository {
   private readonly request: ApiRequestFn;

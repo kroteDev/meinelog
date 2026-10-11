@@ -1,4 +1,4 @@
-import type { User, UserSex } from "../entities/User";
+import type { User, UserSex } from "@/domain/entities/User";
 
 export interface SignUpInput {
   email: string;

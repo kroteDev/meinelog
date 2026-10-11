@@ -1,5 +1,5 @@
 import { describe, expect, it } from "vitest";
-import type { RawTaskDto } from "../../../domain/api/RawTaskDto";
+import type { RawTaskDto } from "@/domain/api/RawTaskDto";
 import { rawToTask, toRawComplete, toRawCreateTask, toRawUpdateTask } from "./taskMapper";
 
 const raw: RawTaskDto = {

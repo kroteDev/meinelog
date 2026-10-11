@@ -1,5 +1,5 @@
 import { describe, expect, it } from "vitest";
-import type { RawCommentDto } from "../../../domain/api/RawCommentDto";
+import type { RawCommentDto } from "@/domain/api/RawCommentDto";
 import { rawToComment, toRawCreateComment, toRawUpdateComment } from "./commentMapper";
 
 const raw: RawCommentDto = {

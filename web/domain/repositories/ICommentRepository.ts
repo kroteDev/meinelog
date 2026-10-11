@@ -1,4 +1,4 @@
-import type { Comment } from "../entities/Comment";
+import type { Comment } from "@/domain/entities/Comment";
 
 export interface CreateCommentInput {
   taskId: string;

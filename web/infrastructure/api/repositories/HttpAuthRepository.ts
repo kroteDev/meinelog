@@ -1,13 +1,13 @@
-import type { ApiRequestFn } from "../httpClient";
-import { extractBearerToken } from "../httpClient";
-import type { RawUserDto } from "../../../domain/api/RawUserDto";
+import type { ApiRequestFn } from "@/infrastructure/api/httpClient";
+import { extractBearerToken } from "@/infrastructure/api/httpClient";
+import type { RawUserDto } from "@/domain/api/RawUserDto";
 import type {
   AuthSession,
   IAuthRepository,
   SignInInput,
   SignUpInput,
-} from "../../../domain/repositories/IAuthRepository";
-import { rawToUser, toRawSignIn, toRawSignUp } from "../mappers/userMapper";
+} from "@/domain/repositories/IAuthRepository";
+import { rawToUser, toRawSignIn, toRawSignUp } from "@/infrastructure/api/mappers/userMapper";
 
 export class HttpAuthRepository implements IAuthRepository {
   private readonly request: ApiRequestFn;

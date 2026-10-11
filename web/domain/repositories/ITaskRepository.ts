@@ -1,4 +1,4 @@
-import type { Task, TaskPriority } from "../entities/Task";
+import type { Task, TaskPriority } from "@/domain/entities/Task";
 
 export interface CreateTaskInput {
   title: string;

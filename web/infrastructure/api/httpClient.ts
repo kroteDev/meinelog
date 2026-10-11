@@ -1,4 +1,4 @@
-import type { ApiErrorResponse } from "../../domain/api/ApiEnvelope";
+import type { ApiErrorResponse } from "@/domain/api/ApiEnvelope";
 
 export class ApiError extends Error {
   readonly status: number;

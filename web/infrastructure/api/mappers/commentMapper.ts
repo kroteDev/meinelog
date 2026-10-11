@@ -1,13 +1,13 @@
 import type {
   CreateCommentRequestDto,
   UpdateCommentRequestDto,
-} from "../../../domain/api/CommentRequests";
-import type { RawCommentDto } from "../../../domain/api/RawCommentDto";
+} from "@/domain/api/CommentRequests";
+import type { RawCommentDto } from "@/domain/api/RawCommentDto";
 import type {
   CreateCommentInput,
   UpdateCommentInput,
-} from "../../../domain/repositories/ICommentRepository";
-import type { Comment, CommentableType } from "../../../domain/entities/Comment";
+} from "@/domain/repositories/ICommentRepository";
+import type { Comment, CommentableType } from "@/domain/entities/Comment";
 
 const KNOWN_COMMENTABLE_TYPES: readonly string[] = ["Task"] as const;
 

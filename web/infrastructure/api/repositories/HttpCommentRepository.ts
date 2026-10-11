@@ -1,12 +1,12 @@
-import type { ApiRequestFn, TokenProvider } from "../httpClient";
-import type { RawCommentDto } from "../../../domain/api/RawCommentDto";
+import type { ApiRequestFn, TokenProvider } from "@/infrastructure/api/httpClient";
+import type { RawCommentDto } from "@/domain/api/RawCommentDto";
 import type {
   CreateCommentInput,
   ICommentRepository,
   UpdateCommentInput,
-} from "../../../domain/repositories/ICommentRepository";
-import type { Comment } from "../../../domain/entities/Comment";
-import { rawToComment, toRawCreateComment, toRawUpdateComment } from "../mappers/commentMapper";
+} from "@/domain/repositories/ICommentRepository";
+import type { Comment } from "@/domain/entities/Comment";
+import { rawToComment, toRawCreateComment, toRawUpdateComment } from "@/infrastructure/api/mappers/commentMapper";
 
 export class HttpCommentRepository implements ICommentRepository {
   private readonly request: ApiRequestFn;

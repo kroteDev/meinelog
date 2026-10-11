@@ -1,7 +1,7 @@
-import type { SignInRequestDto, SignUpRequestDto } from "../../../domain/api/AuthRequests";
-import type { RawUserDto } from "../../../domain/api/RawUserDto";
-import type { SignInInput, SignUpInput } from "../../../domain/repositories/IAuthRepository";
-import type { User } from "../../../domain/entities/User";
+import type { SignInRequestDto, SignUpRequestDto } from "@/domain/api/AuthRequests";
+import type { RawUserDto } from "@/domain/api/RawUserDto";
+import type { SignInInput, SignUpInput } from "@/domain/repositories/IAuthRepository";
+import type { User } from "@/domain/entities/User";
 
 export function rawToUser(raw: RawUserDto): User {
   return {

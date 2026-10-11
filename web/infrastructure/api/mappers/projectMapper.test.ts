@@ -1,5 +1,5 @@
 import { describe, expect, it } from "vitest";
-import type { RawProjectDto } from "../../../domain/api/RawProjectDto";
+import type { RawProjectDto } from "@/domain/api/RawProjectDto";
 import { rawToProject, toRawCreateProject, toRawUpdateProject } from "./projectMapper";
 
 const raw: RawProjectDto = {

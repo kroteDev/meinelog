@@ -1,13 +1,13 @@
 import { createBrowserApiClient, type ApiRequestFn } from "./httpClient";
-import { HttpAuthRepository } from "./repositories/HttpAuthRepository";
-import { HttpCommentRepository } from "./repositories/HttpCommentRepository";
-import { HttpProjectRepository } from "./repositories/HttpProjectRepository";
-import { HttpTaskRepository } from "./repositories/HttpTaskRepository";
-import type { IAuthRepository } from "../../domain/repositories/IAuthRepository";
-import type { ICommentRepository } from "../../domain/repositories/ICommentRepository";
-import type { IProjectRepository } from "../../domain/repositories/IProjectRepository";
-import type { ITaskRepository } from "../../domain/repositories/ITaskRepository";
-import { localStorageTokenStore, type TokenStore } from "../auth/tokenStore";
+import type { IAuthRepository } from "@/domain/repositories/IAuthRepository";
+import { HttpAuthRepository } from "@/infrastructure/api/repositories/HttpAuthRepository";
+import { HttpCommentRepository } from "@/infrastructure/api/repositories/HttpCommentRepository";
+import { HttpProjectRepository } from "@/infrastructure/api/repositories/HttpProjectRepository";
+import { HttpTaskRepository } from "@/infrastructure/api/repositories/HttpTaskRepository";
+import type { ICommentRepository } from "@/domain/repositories/ICommentRepository";
+import type { IProjectRepository } from "@/domain/repositories/IProjectRepository";
+import type { ITaskRepository } from "@/domain/repositories/ITaskRepository";
+import { localStorageTokenStore, type TokenStore } from "@/infrastructure/auth/tokenStore";
 
 let browserClient: ApiRequestFn | null = null;
 let tokenStore: TokenStore = localStorageTokenStore;

@@ -1,5 +1,5 @@
 import { describe, expect, it } from "vitest";
-import type { RawUserDto } from "../../../domain/api/RawUserDto";
+import type { RawUserDto } from "@/domain/api/RawUserDto";
 import { rawToUser, toRawSignIn, toRawSignUp } from "./userMapper";
 
 const raw: RawUserDto = {

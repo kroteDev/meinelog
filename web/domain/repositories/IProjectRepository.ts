@@ -1,4 +1,4 @@
-import type { Project } from "../entities/Project";
+import type { Project } from "@/domain/entities/Project";
 
 export interface CreateProjectInput {
   name: string;
