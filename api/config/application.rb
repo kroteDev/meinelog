@@ -28,5 +28,10 @@ module Api
     # Middleware like session, flash, cookies can be added back manually.
     # Skip views, helpers and assets when generating a new resource.
     config.api_only = true
+
+    # Allow in-cluster traffic from the web container, which reaches
+    # the API as http://api:3000 (compose service name). Without this,
+    # Rails HostAuthorization answers 403 to server-side requests.
+    config.hosts << "api"
   end
 end
