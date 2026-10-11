@@ -17,18 +17,32 @@ export interface ApiRequestOptions {
   path: string;
   token?: string;
   body?: unknown;
+  onResponse?: (res: Response) => void;
 }
 
 export type ApiRequestFn = <T>(options: ApiRequestOptions) => Promise<T>;
+
+/** Supplies the current JWT (or null when signed out). Owned by the session layer. */
+export type TokenProvider = () => string | null;
+
+/** Auth endpoints return the JWT in the Authorization header (with scheme). */
+export function extractBearerToken(headerValue: string | null): string | null {
+  if (!headerValue) return null;
+  const token = headerValue.replace(/^Bearer\s+/i, "");
+  return token === "" ? null : token;
+}
 
 /**
  * Builds a request function bound to one base URL. The base URL is
  * injected (never hardcoded) because it differs per context:
  * browsers need the public address, server code needs the
  * in-cluster address (http://api:3000).
+ *
+ * Repository implementations receive the bound function (plus a token
+ * provider) and stay agnostic of both env and fetch details.
  */
 export function createApiClient({ baseUrl }: { baseUrl: string }): ApiRequestFn {
-  return async function apiRequest<T>({ method, path, token, body }: ApiRequestOptions) {
+  return async function apiRequest<T>({ method, path, token, body, onResponse }: ApiRequestOptions) {
     const headers: Record<string, string> = {
       "Content-Type": "application/json",
       Accept: "application/json",
@@ -40,6 +54,7 @@ export function createApiClient({ baseUrl }: { baseUrl: string }): ApiRequestFn 
       headers,
       body: body === undefined ? undefined : JSON.stringify(body),
     });
+    onResponse?.(res);
 
     if (res.status === 204) return undefined as T;
 
