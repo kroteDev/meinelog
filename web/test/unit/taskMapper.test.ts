@@ -1,6 +1,6 @@
 import { describe, expect, it } from "vitest";
 import type { RawTaskDto } from "@/domain/api/RawTaskDto";
-import { rawToTask, toRawComplete, toRawCreateTask, toRawUpdateTask } from "./taskMapper";
+import { rawToTask, toRawComplete, toRawCreateTask, toRawUpdateTask } from "@/infrastructure/api/mappers/taskMapper";
 
 const raw: RawTaskDto = {
   id: "bb2a1057-1c2c-45f8-bc9d-95e632aa91c7",

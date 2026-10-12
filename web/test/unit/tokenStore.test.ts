@@ -1,5 +1,5 @@
 import { describe, expect, it, vi } from "vitest";
-import { localStorageTokenStore } from "./tokenStore";
+import { localStorageTokenStore } from "@/infrastructure/auth/tokenStore";
 
 function stubStorage() {
   const data = new Map<string, string>();

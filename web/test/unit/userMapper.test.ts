@@ -1,6 +1,6 @@
 import { describe, expect, it } from "vitest";
 import type { RawUserDto } from "@/domain/api/RawUserDto";
-import { rawToUser, toRawSignIn, toRawSignUp } from "./userMapper";
+import { rawToUser, toRawSignIn, toRawSignUp } from "@/infrastructure/api/mappers/userMapper";
 
 const raw: RawUserDto = {
   id: 15,

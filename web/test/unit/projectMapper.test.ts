@@ -1,6 +1,6 @@
 import { describe, expect, it } from "vitest";
 import type { RawProjectDto } from "@/domain/api/RawProjectDto";
-import { rawToProject, toRawCreateProject, toRawUpdateProject } from "./projectMapper";
+import { rawToProject, toRawCreateProject, toRawUpdateProject } from "@/infrastructure/api/mappers/projectMapper";
 
 const raw: RawProjectDto = {
   id: "02003f8e-5690-47b6-847b-741cc344415c",

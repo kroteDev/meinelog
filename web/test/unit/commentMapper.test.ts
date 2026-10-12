@@ -1,6 +1,6 @@
 import { describe, expect, it } from "vitest";
 import type { RawCommentDto } from "@/domain/api/RawCommentDto";
-import { rawToComment, toRawCreateComment, toRawUpdateComment } from "./commentMapper";
+import { rawToComment, toRawCreateComment, toRawUpdateComment } from "@/infrastructure/api/mappers/commentMapper";
 
 const raw: RawCommentDto = {
   id: "c1d2e3f4-0000-4000-8000-aaaaaaaaaaaa",
